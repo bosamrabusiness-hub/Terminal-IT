@@ -1,0 +1,159 @@
+/* src/styles/global.css */
+
+/* 1) Import Tailwind Layers First */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 2) Base Layer Overrides & Global Elements */
+@layer base {
+  /************************************
+   * Scrollbar Hiding & Global HTML
+   ************************************/
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  html {
+    scrollbar-width: none;
+  }
+
+  /************************************
+   * CSS Variables
+   ************************************/
+  :root {
+    --navbar-height: 3.38rem;
+    --about-heading--height: 10.25rem;
+    --hero-section--height: calc(
+      100svh - var(--navbar-height) - var(--about-heading--height)
+    );
+  }
+
+  /************************************
+   * Body & Utility Classes
+   ************************************/
+  body {
+    font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  }
+  .font-jetbrains-mono {
+    font-family: var(--font-jetbrains-mono), monospace;
+  }
+  .font-inter {
+    font-family: var(--font-inter), sans-serif;
+  }
+
+  /* Prevent Scrolling on .lock-scroll */
+  body.lock-scroll {
+    position: fixed;
+    clip-path: inset(0);
+  }
+}
+
+/* 3) Components Layer */
+@layer components {
+}
+
+/* 4) Utilities Layer - Additional Classes */
+@layer utilities {
+  /************************************
+  * Display Heading (H1 in Figma)
+  ************************************/
+  .display-heading {
+    /* 
+      - Min ~65px (below 520px)
+      - ~100px at 520px (md)
+      - Up to ~130px (above 800px)
+    */
+    font-size: clamp(4.0625rem, 10vw + 2.5rem, 8.125rem);
+    line-height: clamp(4.0625rem, 10vw + 2.5rem, 8.125rem);
+    font-weight: 400; /* Normal */
+    letter-spacing: -0.13rem;
+  }
+  /* Compact variant for single-line hero heading */
+  .display-heading--compact {
+    font-size: clamp(3rem, 8vw + 1.2rem, 6.25rem);
+    line-height: clamp(3rem, 8vw + 1.2rem, 6.25rem);
+    font-weight: 400;
+    letter-spacing: -0.11rem;
+  }
+
+  /************************************
+ * Section Heading (H2 in Figma)
+ ************************************/
+  .section-heading {
+    /* 
+    - Min ~40px (below 520px)
+    - ~56px at 520px (md)
+    - Up to ~76px (above 800px)
+  */
+    font-size: clamp(2.5rem, 6vw + 1.5rem, 4.75rem);
+    line-height: clamp(2.5rem, 6vw + 1.5rem, 4.75rem);
+    letter-spacing: -0.02rem;
+  }
+
+  /************************************
+   * Subheading (H6 in Figma)
+   ************************************/
+  .subheading {
+    /* 
+      - Min ~14px (below 520px)
+      - ~18px at 520px (md)
+      - Up to ~24px (above 800px)
+    */
+    font-size: clamp(0.87rem, 2vw + 0.5rem, 1.5rem);
+    line-height: clamp(0.87rem, 2vw + 0.5rem, 1.5rem);
+    letter-spacing: -0.03em;
+    font-weight: bold;
+  }
+
+  /************************************
+   * Large Body Text (Text-1 in Figma)
+   ************************************/
+  .text-large {
+    /* 
+      - Min ~26px (below 520px)
+      - ~40px at 520px (md)
+      - Up to ~54px (above 800px)
+    */
+    font-size: clamp(1.62rem, 5vw + 1rem, 3.37rem);
+    line-height: clamp(1.75rem, 5vw + 1rem, 3.5rem);
+    letter-spacing: -0.02em;
+  }
+
+  /************************************
+ * Medium Body Text (Text-2 in Figma)
+ ************************************/
+  .text-medium {
+    /* 
+    - Min: 16px (unter 520px) → 1rem
+    - 20px at 520px (md) → 1.25rem
+    - 26px at 800px (lg and above) → 1.62rem
+  */
+    font-size: clamp(1rem, 2.54vw + 0.95rem, 1.62rem);
+    line-height: clamp(1rem, 2.54vw + 0.95rem, 1.92rem);
+    letter-spacing: -0.02em;
+  }
+
+  /************************************
+   * Small Body Text (Text-3 in Figma)
+   ************************************/
+  .text-small {
+    /* 
+      - Min ~12px (below 520px)
+      - ~14px at 520px (md)
+      - Up to ~16px (above 800px)
+    */
+    font-size: clamp(0.75rem, 1.5vw + 0.5rem, 1rem);
+    line-height: clamp(0.75rem, 1.5vw + 0.5rem, 1rem);
+    letter-spacing: -0.02rem;
+  }
+
+  /************************************
+   * Search SVG Background
+   ************************************/
+  .bg-search-svg {
+    background-image: url('/search.svg'); /* Ensure the path is correct */
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 1rem; /* Adjust size as needed */
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "scm.alwaysShowActions": true,
+  "scm.alwaysShowRepositories": true,
+  "git.openRepositoryInParentFolders": "never"
+}

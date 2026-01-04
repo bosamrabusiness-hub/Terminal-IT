@@ -1,0 +1,65 @@
+/* src/components/sections/works/style.module.scss */
+
+.projects {
+  .body {
+    /* Removed max-width: 1400px to allow full width */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Changed from center to flex-start */
+    justify-content: flex-start; /* Changed from center to flex-start */
+    margin-bottom: 100px;
+    padding: 0; /* Removed any padding */
+  }
+
+  .modalContainer {
+    height: 350px;
+    width: 400px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background-color: white;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 3;
+    transform: translate(-50%, -50%) scale(0); /* Ensured initial transform */
+  }
+
+  .modalSlider {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    transition: top 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+
+  .modal {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal img {
+    height: auto;
+  }
+
+  .cursor,
+  .cursorLabel {
+    width: 90px;
+    height: 35px;
+    border-radius: 6px;
+    background-color: rgb(162, 158, 154);
+    position: fixed;
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  .cursor {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Corrected to center */
+    gap: 2px;
+  }
+}

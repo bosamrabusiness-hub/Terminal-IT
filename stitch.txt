@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Why Choose Terminal?</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#000000",
+                        "background-light": "#F6F4EF",
+                        "background-dark": "#0F0F0F",
+                        "text-light": "#111111",
+                        "text-dark": "#EDEDED",
+                        "accent-pink": "#E86A78",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .illustration-stroke {
+            stroke-width: 2px;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen text-text-light dark:text-text-dark transition-colors duration-300 relative overflow-x-hidden">
+<div class="absolute top-6 right-6 md:top-10 md:right-10 z-50">
+<button class="w-16 h-16 rounded-full bg-primary text-white dark:bg-white dark:text-black flex items-center justify-center shadow-lg hover:scale-105 transition-transform duration-200">
+<span class="material-icons" style="font-size: 32px;">menu</span>
+</button>
+</div>
+<main class="container mx-auto px-6 py-16 md:py-24 lg:px-16 max-w-[1440px]">
+<header class="text-center mb-20 md:mb-32">
+<h1 class="text-5xl md:text-7xl lg:text-[5.5rem] font-medium tracking-tight leading-[1.1] mb-8 text-black dark:text-white">
+                Why Choose Terminal?
+            </h1>
+<p class="text-xl md:text-2xl text-gray-800 dark:text-gray-300 max-w-3xl mx-auto font-normal leading-relaxed">
+                We combine cutting-edge technology with proven methodologies<br class="hidden md:block"/> to deliver exceptional results.
+            </p>
+</header>
+<div class="flex flex-col gap-16 md:gap-20 max-w-4xl mx-auto md:ml-0 md:pl-8 lg:pl-12">
+<div class="group">
+<div class="flex items-center gap-5 md:gap-6 mb-3">
+<div class="text-black dark:text-white transition-transform duration-300 group-hover:-translate-y-1">
+<svg class="w-10 h-10 md:w-12 md:h-12 illustration-stroke stroke-current" fill="none" height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg">
+<path d="M26 2L14 26H24L22 46L34 22H24L26 2Z"></path>
+<path d="M8 14H14"></path>
+<path d="M6 22H10"></path>
+<path d="M8 30H12"></path>
+</svg>
+</div>
+<h2 class="text-3xl md:text-[2.125rem] font-semibold text-black dark:text-white leading-tight">
+                        Lightning Fast
+                    </h2>
+</div>
+<p class="text-xl md:text-[1.6rem] text-gray-900 dark:text-gray-300 font-normal leading-normal max-w-3xl ml-[calc(48px+20px)] md:ml-[calc(48px+24px)]">
+                    Optimized performance with cutting-edge technologies and best practices for speed and scalability.
+                </p>
+</div>
+<div class="group">
+<div class="flex items-center gap-5 md:gap-6 mb-3">
+<div class="text-black dark:text-white transition-transform duration-300 group-hover:-translate-y-1">
+<svg class="w-10 h-10 md:w-12 md:h-12 illustration-stroke stroke-current" fill="none" height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg">
+<path d="M24 4L6 10V22C6 31.5 13.5 40.5 24 44C34.5 40.5 42 31.5 42 22V10L24 4Z"></path>
+<path d="M16 22L22 28L32 16"></path>
+</svg>
+</div>
+<h2 class="text-3xl md:text-[2.125rem] font-semibold text-black dark:text-white leading-tight">
+                        Enterprise Security
+                    </h2>
+</div>
+<p class="text-xl md:text-[1.6rem] text-gray-900 dark:text-gray-300 font-normal leading-normal max-w-3xl ml-[calc(48px+20px)] md:ml-[calc(48px+24px)]">
+                    Military-grade security implementation with comprehensive testing and vulnerability assessments.
+                </p>
+</div>
+<div class="group">
+<div class="flex items-center gap-5 md:gap-6 mb-3">
+<div class="text-black dark:text-white transition-transform duration-300 group-hover:-translate-y-1">
+<svg class="w-10 h-10 md:w-12 md:h-12 illustration-stroke stroke-current" fill="none" height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg">
+<path d="M35 38H13C8.02944 38 4 33.9706 4 29C4 24.5028 7.29977 20.7628 11.609 20.0936C12.1866 14.3725 17.0094 10 22.8 10C27.9946 10 32.4285 13.5135 33.6841 18.2565C38.3073 18.9954 42 22.8447 42 27.8C42 33.4333 38.866 38 35 38Z"></path>
+<circle class="stroke-none" cx="16" cy="28" fill="currentColor" r="2"></circle>
+<circle class="stroke-none" cx="24" cy="24" fill="currentColor" r="2"></circle>
+<circle class="stroke-none" cx="32" cy="28" fill="currentColor" r="2"></circle>
+<path class="stroke-[1.5px]" d="M16 28L24 24L32 28"></path>
+</svg>
+</div>
+<h2 class="text-3xl md:text-[2.125rem] font-semibold text-black dark:text-white leading-tight">
+                        Cloud Native
+                    </h2>
+</div>
+<p class="text-xl md:text-[1.6rem] text-gray-900 dark:text-gray-300 font-normal leading-normal max-w-3xl ml-[calc(48px+20px)] md:ml-[calc(48px+24px)]">
+                    Built for the cloud with microservices architecture, auto-scaling, and global deployment capabilities.
+                </p>
+</div>
+</div>
+</main>
+<div class="fixed bottom-8 left-8 z-40">
+<div class="w-12 h-12 rounded-full bg-[#333] dark:bg-gray-700 flex items-center justify-center">
+<span class="text-white font-serif text-xl italic">N</span>
+</div>
+</div>
+<div class="fixed bottom-8 right-8 z-40">
+<div class="w-12 h-12 bg-accent-pink flex items-center justify-center shadow-md">
+<span class="text-white font-mono text-sm">lg</span>
+</div>
+</div>
+
+</body></html>
