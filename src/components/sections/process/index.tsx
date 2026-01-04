@@ -49,19 +49,19 @@ const Process = () => {
           lg:mb-[500px]   
         "
       >
-        <h2 className="display-heading pt-12 md:pt-0">
-          Explain <br /> better <br /> stories
+        <h2 className="pt-12 md:pt-0 text-[2.5rem] md:text-[3rem] lg:text-[3.5rem] font-semibold whitespace-nowrap">
+          Our Story
         </h2>
-        <p className="text-medium">
-          Elevate your projects with a focus on{' '}
-          <b>User-Centered Design and the design thinking process.</b> I
-          specialize in creating solutions that prioritize user needs and drive
-          results.
-        </p>
-        <p className="text-medium">
-          <b>Through an agile design process</b> grounded in empathy and
-          collaboration, I guide projects from ideation to iteration, ensuring
-          each step brings us closer to a solution that truly resonates.
+        <p className="text-medium leading-relaxed">
+          <b>Terminal was founded in 2025</b> with a simple yet ambitious vision:
+          to <b>bridge the gap between cutting-edge technology</b> and real-world
+          business needs.<br />
+          What started as a small team of passionate developers has grown into a
+          <b> full-service digital agency</b>.<br />
+          Today, we continue to push boundaries, embrace new technologies, and
+          maintain our commitment to <b>delivering exceptional results</b>.<br />
+          Our success is measured not just by the code we write, but by the
+          <b> impact we create</b> for our clients and their users.
         </p>
       </div>
     </section>
