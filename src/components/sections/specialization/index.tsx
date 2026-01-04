@@ -14,18 +14,23 @@ const Specialization = () => {
         <div className="flex flex-col gap-8 md:gap-12 w-full lg:basis-2/3">
           <Card
             number={1}
-            heading="Collaboration with Stakeholders and Teams"
-            paragraph="I effectively collaborate with management, developers, and stakeholders to align project goals with business objectives, ensuring smooth and efficient project execution."
+            heading="Discovery"
+            paragraph="We analyze your requirements, goals, and technical constraints to create a comprehensive project roadmap."
           />
           <Card
             number={2}
-            heading="Web Development Expertise"
-            paragraph="Specializing in React/Next.js, I build robust and user-friendly web applications, leveraging the latest technologies like  Headless CMS, Tailwind, Vercel to provide long-term value to clients."
+            heading="Design"
+            paragraph="Our team creates detailed designs, architecture plans, and prototypes for your approval."
           />
           <Card
             number={3}
-            heading="Design Excellence"
-            paragraph="With a college degree and experience in large companies, I create visually appealing and intuitive user interfaces that maintain brand consistency and resonate with target audiences."
+            heading="Development"
+            paragraph="We build your solution using agile methodologies with regular updates and feedback cycles."
+          />
+          <Card
+            number={4}
+            heading="Deployment"
+            paragraph="We deploy, test, and optimize your solution with ongoing support and maintenance."
           />
           <button className="relative self-end text-right before:absolute before:-bottom-1 before:left-0 before:right-0 before:h-px before:w-full before:bg-hero-dark">
             Let&apos;s work together
