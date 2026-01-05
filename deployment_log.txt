@@ -1,0 +1,60 @@
+20:22:28.154 Running build in Washington, D.C., USA (East) – iad1
+20:22:28.154 Build machine configuration: 2 cores, 8 GB
+20:22:28.291 Cloning github.com/bosamrabusiness-hub/Terminal-Software-House (Branch: master, Commit: d82e6dc)
+20:22:28.292 Previous build caches not available.
+20:22:29.424 Cloning completed: 1.133s
+20:22:29.808 Running "vercel build"
+20:22:30.225 Vercel CLI 50.1.3
+20:22:30.531 Installing dependencies...
+20:22:42.745 
+20:22:42.746 added 437 packages in 12s
+20:22:42.747 
+20:22:42.747 167 packages are looking for funding
+20:22:42.748   run `npm fund` for details
+20:22:42.802 Detected Next.js version: 16.1.1
+20:22:42.807 Running "npm run build"
+20:22:42.907 
+20:22:42.908 > terminal-software-house@0.1.0 build
+20:22:42.908 > next build
+20:22:42.908 
+20:22:43.476 Attention: Next.js now collects completely anonymous telemetry regarding usage.
+20:22:43.477 This information is used to shape Next.js' roadmap and prioritize features.
+20:22:43.477 You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+20:22:43.478 https://nextjs.org/telemetry
+20:22:43.478 
+20:22:43.492 ▲ Next.js 16.1.1 (Turbopack)
+20:22:43.493 
+20:22:43.523   Creating an optimized production build ...
+20:22:48.916 Browserslist: browsers data (caniuse-lite) is 9 months old. Please run:
+20:22:48.918   npx update-browserslist-db@latest
+20:22:48.918   Why you should do it regularly: https://github.com/browserslist/update-db#readme
+20:22:54.255 
+20:22:54.256 > Build error occurred
+20:22:54.258 Error: Turbopack build failed with 1 errors:
+20:22:54.259 ./src/app/template.tsx:4:1
+20:22:54.259 Module not found: Can't resolve 'lenis/react'
+20:22:54.259 [0m [90m 2 |[39m
+20:22:54.259  [90m 3 |[39m [32m'use client'[39m[33m;[39m
+20:22:54.259 [31m[1m>[22m[39m[90m 4 |[39m [36mimport[39m { [33mReactLenis[39m } [36mfrom[39m [32m'lenis/react'[39m[33m;[39m
+20:22:54.260  [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+20:22:54.261  [90m 5 |[39m
+20:22:54.261  [90m 6 |[39m [36mconst[39m [33mTemplate[39m [33m=[39m ({ children }[33m:[39m { children[33m:[39m [33mReact[39m[33m.[39m[33mReactNode[39m }) [33m=>[39m {
+20:22:54.261  [90m 7 |[39m   [36mreturn[39m [33m<[39m[33mReactLenis[39m root[33m>[39m{children}[33m<[39m[33m/[39m[33mReactLenis[39m[33m>[39m[33m;[39m[0m
+20:22:54.261 
+20:22:54.262 
+20:22:54.262 
+20:22:54.262 Import traces:
+20:22:54.262   Client Component Browser:
+20:22:54.262     ./src/app/template.tsx [Client Component Browser]
+20:22:54.262     ./src/app/template.tsx [Server Component]
+20:22:54.262 
+20:22:54.263   Client Component SSR:
+20:22:54.263     ./src/app/template.tsx [Client Component SSR]
+20:22:54.263     ./src/app/template.tsx [Server Component]
+20:22:54.263 
+20:22:54.263 https://nextjs.org/docs/messages/module-not-found
+20:22:54.264 
+20:22:54.264 
+20:22:54.264     at <unknown> (./src/app/template.tsx:4:1)
+20:22:54.264     at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+20:22:54.315 Error: Command "npm run build" exited with 1
