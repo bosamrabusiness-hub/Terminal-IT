@@ -60,7 +60,14 @@ mb-[1.875rem] lg:mb-[2.5rem]
             <span className="inline-block mr-[1.875rem] md:mr-[2.19rem] lg:mr-[2.19rem]">
               <HeadingArrow />
             </span>
-            <span>The last piece of art</span>
+            <span className="inline-flex items-baseline gap-2">
+              <span>The last piece of art</span>
+              <img
+                src="/assets/piece-of-art.png"
+                alt="piece of art"
+                style={{ height: '1em', width: 'auto' }}
+              />
+            </span>
           </h2>
           <Stacks ref={stackRef} x={x} />
 
