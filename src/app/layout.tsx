@@ -55,6 +55,14 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} ${jetbrainsMono.variable} ${inter.variable}`}>
         <AppProvider>
           <Providers>
+            {/* Dynamic favicon switcher */}
+            {/* mounts early and updates <link rel="icon"> based on color scheme */}
+            {/* It ensures favicon changes instantly without relying on static metadata */}
+            {/* client-only and has no visual output */}
+            {(() => {
+              const FaviconSwitcher = require('@/components/common/FaviconSwitcher').default;
+              return <FaviconSwitcher />;
+            })()}
             <Offcanvas />
             <Navbar />
             {children}
