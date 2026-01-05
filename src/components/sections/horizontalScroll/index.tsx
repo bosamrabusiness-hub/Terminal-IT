@@ -60,7 +60,7 @@ mb-[1.875rem] lg:mb-[2.5rem]
             <span className="inline-block mr-[1.875rem] md:mr-[2.19rem] lg:mr-[2.19rem]">
               <HeadingArrow />
             </span>
-            <span>Engage your users with an attractive design</span>
+            <span>The last piece of art</span>
           </h2>
           <Stacks ref={stackRef} x={x} />
 
