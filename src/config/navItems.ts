@@ -18,13 +18,19 @@ export const navItems: NavItem[] = [
   },
   {
     id: 2,
+    label: 'Explorer',
+    href: '/explorer',
+    type: 'route',
+  },
+  {
+    id: 3,
     label: 'Projects',
     href: '/#projects',
     type: 'anchor',
     offset: -180,
   },
   {
-    id: 3,
+    id: 4,
     label: 'Contact',
     href: '/#contact',
     type: 'anchor',

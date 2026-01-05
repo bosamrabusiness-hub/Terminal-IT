@@ -1,31 +1,20 @@
-// src/components/sections/Hero/HeroArrow.tsx
-
 'use client';
 
 import { motion } from 'framer-motion';
 import { useAppContext } from '../context/AppContext';
 
-const HeroArrow = () => {
+const TerminalIcon = () => {
   const { heroIconControl } = useAppContext();
   return (
     <motion.div
       className="relative inline-block [--size:3.6rem] md:[--size:4.1rem] lg:[--size:5.56rem]"
       style={{ verticalAlign: 'baseline' }}
       variants={{
-        hidden: {
-          width: '0rem',
-          height: '0rem',
-        },
-        visible: {
-          width: 'var(--size)',
-          height: 'var(--size)',
-        },
+        hidden: { width: '0rem', height: '0rem' },
+        visible: { width: 'var(--size)', height: 'var(--size)' },
       }}
-      initial="hidden"
-      transition={{
-        ease: [0.86, 0, 0.07, 0.995],
-        duration: 1,
-      }}
+      initial="visible"
+      transition={{ ease: [0.86, 0, 0.07, 0.995], duration: 1 }}
       animate={heroIconControl}
     >
       <motion.svg
@@ -36,27 +25,27 @@ const HeroArrow = () => {
         style={{ display: 'block' }}
       >
         <polyline
-          points="18,22 54,50 18,78"
+          points="18,30 52,50 18,70"
           fill="none"
           stroke="currentColor"
-          strokeWidth="12"
+          strokeWidth="10"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <motion.rect
           x="60"
-          y="78"
+          y="72"
           width="26"
-          height="5"
-          rx="2"
+          height="6"
+          rx="3"
           fill="currentColor"
           initial={{ opacity: 1 }}
-          animate={{ opacity: [1, 0.15, 1] }}
-          transition={{ duration: 0.8, repeat: Infinity, ease: 'easeInOut' }}
+          animate={{ opacity: [1, 0.2, 1] }}
+          transition={{ duration: 0.9, repeat: Infinity, ease: 'easeInOut' }}
         />
       </motion.svg>
     </motion.div>
   );
 };
 
-export default HeroArrow;
+export default TerminalIcon;

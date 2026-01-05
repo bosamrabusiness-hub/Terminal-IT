@@ -9,7 +9,7 @@ import { motion, Variants } from 'framer-motion';
 import gsap from 'gsap';
 import Image from 'next/image';
 import { projectData } from './projectData';
-import HeadingArrow from '@/components/common/HeadingArrow';
+import TerminalIcon from '@/components/common/TerminalIcon';
 
 interface ModalState {
   active: boolean;
@@ -130,8 +130,8 @@ export default function Works({ id }: WorksProps) {
     mb-[1.875rem] lg:mb-[2.5rem]
     "
       >
-        <span className="inline-block mr-[1.875rem] md:mr-[2.19rem] lg:mr-[2.19rem]">
-          <HeadingArrow />
+        <span className="inline-block mr-[1.875rem] md:mr-[2.19rem] lg:mr-[2.19rem] text-details-red">
+          <TerminalIcon />
         </span>
         <span>Recent projects</span>
       </h2>
@@ -165,7 +165,9 @@ export default function Works({ id }: WorksProps) {
               className={styles.modalSlider}
             >
               {projectData.map((project, idx) => {
-                const { imageUrl, color } = project;
+                const { imageUrl, color, gallery, headingImage } = project;
+                const previewImage =
+                  headingImage ?? (gallery && gallery[0]) ?? imageUrl;
                 return (
                   <div
                     className={styles.modal}
@@ -174,7 +176,7 @@ export default function Works({ id }: WorksProps) {
                   >
                     <div className="relative h-full w-full">
                       <Image
-                        src={imageUrl}
+                        src={previewImage}
                         alt="image"
                         fill
                         sizes="400px"

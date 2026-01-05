@@ -49,7 +49,9 @@ export default function Modal({
     >
       <div className="flex flex-row sm:flex-row p-5 justify-between items-top w-full">
         <div className="flex flex-col gap-[10px] md:flex-row md:items-center md:gap-4 lg:gap-8">
-          <h2 className="number section-heading">{id}</h2>
+          <h2 className="number section-heading active-number text-details-red">{
+            id
+          }</h2>
           <div className="flex flex-col items-start">
             <h3 className="company-name text-small transition-colors duration-200 ease-out md:text-hero-dark md:group-hover:text-mainbody-weg">
               {companyName}
@@ -92,8 +94,8 @@ export default function Modal({
   if (comingSoon) {
     return (
       <div className="block w-full border-t-[3px] p-5">
-        <h2 className="number section-heading">{id}</h2>
-        <p>{title} is coming soon</p>
+        <h2 className="number section-heading active-number text-details-red">{id}</h2>
+        <p>Coming soon</p>
       </div>
     );
   } else if (externalUrl) {

@@ -1,4 +1,6 @@
 // src/components/sections/works/projectData.ts
+import { StaticImageData } from 'next/image';
+import sonbolaDashboard from '../../../../assets/sonbola-dashboard.png';
 
 export interface ProjectData {
   id: string;
@@ -10,27 +12,24 @@ export interface ProjectData {
   color: string;
   sector: string;
   myRole: string;
-  gallery?: string[]; // array of photo URLs for the "under the role" section
+  gallery?: (string | StaticImageData)[]; // array of photo URLs for the "under the role" section
   externalUrl?: string; // optional external URL for projects that link outside the app
   comingSoon?: boolean; // optional flag to indicate if the project is coming soon
-  headingImage?: string; // New heading image for projects
+  headingImage?: string | StaticImageData; // New heading image for projects
 }
 
 export const projectData: ProjectData[] = [
   {
     id: '01',
-    companyName: 'Case study Elysium',
-    date: '2024-2025 (ongoing project)',
-    imageUrl: '/elysiumurl.png',
-    headingImage: '/elysiumintro.png', // New heading image for Elysium
-    title: 'Elysium Consulting',
+    companyName: 'Ed-Tech Platform',
+    date: '2025',
+    imageUrl: '/project-1.png',
+    title: 'Sonbola-Edu',
     color: '#0C0C0C',
-    slug: 'elysium',
-    sector: 'Business & Finance Consulting',
+    slug: 'sonbola-edu',
+    sector: 'Digital Education & Technology',
     myRole: 'Design & Development',
-    gallery: ['/public/elysiumurl.png', '/elysium-gallery2.png'],
-    externalUrl:
-      'https://www.figma.com/proto/fL8vxgeOVwvC3acrsOfZvl/PROJECTS-WEB?page-id=8410%3A3867&node-id=8410-3868&viewport=403%2C153%2C0.11&t=3bOXh6Q2LLUObPqE-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=8410%3A3868',
+    headingImage: sonbolaDashboard,
   },
   {
     id: '02',
@@ -46,6 +45,7 @@ export const projectData: ProjectData[] = [
     gallery: ['/trainspot2s.svg', '/trainspot3s.svg', '/trainspot1s.svg'],
     externalUrl:
       'https://www.figma.com/proto/fL8vxgeOVwvC3acrsOfZvl/PROJECTS-WEB?page-id=6003%3A24158&node-id=6546-25201&viewport=-6873%2C-7452%2C0.66&t=jgtdkRGOqrAylpPb-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=6546%3A25201',
+    comingSoon: true,
   },
   {
     id: '03',
@@ -63,6 +63,7 @@ export const projectData: ProjectData[] = [
     ],
     externalUrl:
       'https://www.figma.com/proto/fL8vxgeOVwvC3acrsOfZvl/PROJECTS-WEB?page-id=8169%3A38862&node-id=8169-38863&viewport=328%2C326%2C0.61&t=GfkMhJA2Y4Pn0Trw-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=8169%3A38863',
+    comingSoon: true,
   },
   {
     id: '04',

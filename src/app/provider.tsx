@@ -18,11 +18,18 @@ export function Providers({ children }: { children: React.ReactNode }) {
   const { startMainHeadingScramble, preloaderCompleted } = useAppContext();
   const [showPreloader, setShowPreloader] = useState(true);
   const [showIntro, setShowIntro] = useState(false);
+  const firstLoadRef = useRef(true);
 
   useEffect(() => {
     const raf = requestAnimationFrame(() => {
-      setShowPreloader(true);
-      setShowIntro(false);
+      if (firstLoadRef.current) {
+        firstLoadRef.current = false;
+        setShowPreloader(true);
+        setShowIntro(false);
+      } else {
+        setShowPreloader(false);
+        setShowIntro(false);
+      }
     });
     return () => cancelAnimationFrame(raf);
   }, [pathname]);
@@ -82,10 +89,9 @@ export function Providers({ children }: { children: React.ReactNode }) {
               y: '-100%',
               duration: 0.5,
               ease: 'circ.inOut',
-            },
-            '<50%'
+            }
           )
-          .call(next, undefined, '<50%');
+          .call(next);
 
         return () => {
           tl.kill();

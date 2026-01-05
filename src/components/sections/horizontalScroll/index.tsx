@@ -3,7 +3,7 @@
 'use client';
 
 import { useScroll, useSpring, useTransform } from 'framer-motion';
-import HeadingArrow from '../../common/HeadingArrow';
+import TerminalIcon from '../../common/TerminalIcon';
 import { useEffect, useRef, useState } from 'react';
 import Stacks from './stacks';
 
@@ -58,8 +58,8 @@ mr-[0.63rem] md:mr-[1.25rem] lg:mr-[1.25rem]
 mb-[1.875rem] lg:mb-[2.5rem]
 "
           >
-            <span className="inline-block mr-[1.875rem] md:mr-[2.19rem] lg:mr-[2.19rem]">
-              <HeadingArrow />
+            <span className="inline-block mr-[1.875rem] md:mr-[2.19rem] lg:mr-[2.19rem] text-details-red">
+              <TerminalIcon />
             </span>
             <span className="inline-flex items-baseline gap-2">
               <span>The last piece of art</span>

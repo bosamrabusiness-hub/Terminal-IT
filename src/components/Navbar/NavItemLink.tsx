@@ -2,7 +2,7 @@
 'use client';
 
 import React from 'react';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import gsap from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { NavItem } from '@/config/navItems';
@@ -20,6 +20,7 @@ export const NavItemLink: React.FC<NavItemLinkProps> = ({
   extraClassName = '',
 }) => {
   const pathname = usePathname();
+  const router = useRouter();
 
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -60,7 +61,7 @@ export const NavItemLink: React.FC<NavItemLinkProps> = ({
         href={item.href}
         onClick={(e) => {
           e.preventDefault();
-          window.location.href = item.href;
+          router.push(item.href);
         }}
         {...commonProps}
       >

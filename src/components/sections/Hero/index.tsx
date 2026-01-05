@@ -1,6 +1,7 @@
 'use client';
+
 // src/components/sections/Hero/index.tsx
-import HeroArrow from '../../common/HeroArrow';
+import TerminalIcon from '../../common/TerminalIcon';
 import SoftWindowFrame from '../stitch/SoftWindowFrame';
 import { useEffect, useState } from 'react';
 import { useScramble } from 'use-scramble';
@@ -49,7 +50,7 @@ const Hero: React.FC<HeroProps> = ({ id }) => {
       <div className="absolute bottom-24 left-[1.88rem] md:left-[4.38rem] lg:left-[4.38rem] right-[0.63rem] md:right-[1.25rem] lg:right-[1.25rem] z-5">
         <div className="grid grid-cols-[auto_1fr] items-baseline gap-3">
           <div className="flex items-baseline">
-            <HeroArrow />
+            <TerminalIcon />
           </div>
           <div>
             <h1 className="display-heading display-heading--compact whitespace-nowrap">

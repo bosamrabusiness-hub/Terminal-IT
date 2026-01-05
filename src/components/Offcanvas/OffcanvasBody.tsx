@@ -34,18 +34,18 @@ export default function OffcanvasBody({ onClose }: Props) {
         <div className="flex h-full flex-col justify-between p-10 md:p-16 lg:p-24">
           <Links onItemClick={onClose} />
           <div className="mt-10 flex gap-6 text-sm text-mainbody-weg/70">
-            <a href="https://awwwards.com" target="_blank" rel="noreferrer">
-              Awwwards
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noreferrer">
+            <span className="opacity-60 cursor-not-allowed" aria-disabled="true">
+              Facebook
+            </span>
+            <span className="opacity-60 cursor-not-allowed" aria-disabled="true">
               Instagram
-            </a>
-            <a href="https://dribbble.com" target="_blank" rel="noreferrer">
-              Dribbble
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer">
+            </span>
+            <span className="opacity-60 cursor-not-allowed" aria-disabled="true">
+              Youtube
+            </span>
+            <span className="opacity-60 cursor-not-allowed" aria-disabled="true">
               LinkedIn
-            </a>
+            </span>
           </div>
         </div>
       </div>

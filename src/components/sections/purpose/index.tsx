@@ -1,5 +1,5 @@
 import React from 'react';
-import HeadingArrow from '../../common/HeadingArrow';
+import TerminalIcon from '../../common/TerminalIcon';
 
 const Purpose: React.FC = () => {
   return (
@@ -12,8 +12,8 @@ const Purpose: React.FC = () => {
     mb-[1.875rem] lg:mb-[2.5rem]
   "
       >
-        <span className="inline-block mr-[1.875rem] md:mr-[2.19rem] lg:mr-[2.19rem]">
-          <HeadingArrow />
+        <span className="inline-block mr-[1.875rem] md:mr-[2.19rem] lg:mr-[2.19rem] text-details-red">
+          <TerminalIcon />
         </span>
         <span>Let&apos;s design with purpose</span>
       </h2>

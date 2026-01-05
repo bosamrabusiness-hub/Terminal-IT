@@ -5,7 +5,6 @@ import localFont from 'next/font/local';
 import { JetBrains_Mono, Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar/Navbar';
-import { TailwindIndicator } from '@/components/debugger/tailwindIndicator';
 import { AppProvider } from '../components/context/AppContext';
 import { Providers } from './provider';
 import Offcanvas from '@/components/Offcanvas/Offcanvas';
@@ -58,7 +57,7 @@ export default function RootLayout({
           <Providers>
             <Offcanvas />
             <Navbar />
-            {children} <TailwindIndicator />
+            {children}
           </Providers>
         </AppProvider>
       </body>
