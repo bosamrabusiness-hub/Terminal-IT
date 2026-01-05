@@ -375,7 +375,7 @@ export default function WindowsExplorer() {
   };
 
   return (
-    <div className="mx-auto flex h-[85svh] w-[90%] max-w-[1400px] flex-col overflow-hidden rounded-[12px] border border-white/5 bg-[#1F2125] shadow-[0_20px_50px_-12px_rgba(0,0,0,0.7)]">
+    <div className="relative mx-auto flex h-[85svh] w-[90%] max-w-[1400px] flex-col overflow-hidden rounded-[12px] border border-white/5 bg-[#1F2125] shadow-[0_20px_50px_-12px_rgba(0,0,0,0.7)]">
       <div className="flex h-10 select-none items-center justify-between px-4 pt-2">
         <div className="flex items-center space-x-6">
           <div className="flex items-center space-x-2 text-[#A7ACB8]">
@@ -384,7 +384,6 @@ export default function WindowsExplorer() {
               {currentDir.name}
             </span>
           </div>
-          
         </div>
         <div className="flex items-center space-x-2 text-[#A7ACB8]">
           <button className="flex h-8 w-8 items-center justify-center rounded transition-colors hover:bg-white/10">
@@ -831,6 +830,10 @@ export default function WindowsExplorer() {
             </motion.div>
           )}
         </AnimatePresence>
+      </div>
+      <div className="pointer-events-none absolute bottom-4 right-6 flex items-center gap-2 text-xs italic text-[#A7ACB8]">
+        <span>keep scrolling to discover</span>
+        <span className="material-icons-outlined text-[14px]" aria-hidden="true">south</span>
       </div>
     </div>
   );

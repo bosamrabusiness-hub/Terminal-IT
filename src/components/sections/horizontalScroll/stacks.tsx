@@ -11,9 +11,11 @@ import { RefObject } from 'react';
 
 const Stacks = ({
   x,
+  progress,
   ref,
 }: {
   x: MotionValue;
+  progress: MotionValue<number>;
   ref: RefObject<HTMLDivElement>;
 }) => {
   return (
@@ -30,7 +32,7 @@ const Stacks = ({
         <Card5 />
         <Card6 />
         <Card7 />
-        <Card8 />
+        <Card8 progress={progress} />
       </motion.div>
     </div>
   );

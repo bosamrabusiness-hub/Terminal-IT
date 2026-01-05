@@ -52,6 +52,7 @@ const HorizontalSection = () => {
           <h2
             className="
 section-heading
+mt-[2rem] md:mt-[3rem] lg:mt-[3.5rem]
 ml-[1.88rem] md:ml-[4.38rem] lg:ml-[4.38rem]
 mr-[0.63rem] md:mr-[1.25rem] lg:mr-[1.25rem]
 mb-[1.875rem] lg:mb-[2.5rem]
@@ -69,7 +70,7 @@ mb-[1.875rem] lg:mb-[2.5rem]
               />
             </span>
           </h2>
-          <Stacks ref={stackRef} x={x} />
+          <Stacks ref={stackRef} x={x} progress={scrollYProgress} />
 
           <button className="xs absolute bottom-[0.64rem] right-[0.64rem] py-4 px-0">
             (Keep going ↓ )
