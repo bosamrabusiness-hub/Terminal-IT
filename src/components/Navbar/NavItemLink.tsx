@@ -13,11 +13,13 @@ gsap.registerPlugin(ScrollToPlugin);
 interface NavItemLinkProps {
   item: NavItem;
   extraClassName?: string; // optional className prop
+  plain?: boolean;
 }
 
 export const NavItemLink: React.FC<NavItemLinkProps> = ({
   item,
   extraClassName = '',
+  plain = false,
 }) => {
   const pathname = usePathname();
   const router = useRouter();
@@ -50,7 +52,7 @@ export const NavItemLink: React.FC<NavItemLinkProps> = ({
   if (item.type === 'anchor' && pathname === '/') {
     return (
       <a href={item.href} onClick={handleSmoothScroll} {...commonProps}>
-        <TextHover titile1={item.label} titile2={item.label} />
+        {plain ? item.label : <TextHover titile1={item.label} titile2={item.label} />}
       </a>
     );
   }
@@ -65,14 +67,14 @@ export const NavItemLink: React.FC<NavItemLinkProps> = ({
         }}
         {...commonProps}
       >
-        <TextHover titile1={item.label} titile2={item.label} />
+        {plain ? item.label : <TextHover titile1={item.label} titile2={item.label} />}
       </a>
     );
   }
 
   return (
     <a href={item.href} {...commonProps}>
-      <TextHover titile1={item.label} titile2={item.label} />
+      {plain ? item.label : <TextHover titile1={item.label} titile2={item.label} />}
     </a>
   );
 };

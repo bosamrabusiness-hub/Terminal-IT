@@ -85,6 +85,7 @@ export default function ProjectLayout({ slug, children }: ProjectLayoutProps) {
             absolute bottom-9
             left-[1.88rem] md:left-[4.38rem]
             right-[0.63rem] md:right-[1.25rem] lg:right-[1.25rem]
+            scale-[0.88] md:scale-[1] origin-left
           "
         >
           <TerminalIcon /> <span>{project.title}</span>

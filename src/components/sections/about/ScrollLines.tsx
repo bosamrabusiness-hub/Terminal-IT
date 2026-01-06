@@ -66,6 +66,10 @@ export default function ScrollLines({ lines, className, header }: Props) {
     if (!sectionRef.current || !stickyRef.current || itemsRef.current.length === 0)
       return;
 
+    // Hint GPU acceleration for animated elements
+    gsap.set(itemsRef.current, { willChange: 'transform,opacity', force3D: true });
+    gsap.set(stickyRef.current, { willChange: 'transform' });
+
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
@@ -73,6 +77,7 @@ export default function ScrollLines({ lines, className, header }: Props) {
         end: 'bottom bottom',
         scrub: true,
         pin: stickyRef.current,
+        anticipatePin: 1,
       },
     });
 
@@ -82,7 +87,7 @@ export default function ScrollLines({ lines, className, header }: Props) {
       tl.fromTo(
         el,
         { opacity: 0, y: 40 },
-        { opacity: 1, y: 0, duration: 0.6 },
+        { opacity: 1, y: 0, duration: 0.6, ease: 'none' },
         i * 0.6
       );
     });

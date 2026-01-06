@@ -1,7 +1,7 @@
 // src/app/projects/RelatedProjectsSection.tsx
 
 import React from 'react';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
 
 interface RelatedProject {
@@ -12,6 +12,7 @@ interface RelatedProject {
   imageUrl: string;
   externalUrl?: string;
   comingSoon?: boolean;
+  headingImage?: string | StaticImageData;
 }
 
 interface RelatedProjectsSectionProps {
@@ -50,7 +51,7 @@ const RelatedProjectsSection: React.FC<RelatedProjectsSectionProps> = ({
                   {/* Image (no padding) */}
                   <div className="overflow-hidden transition-transform transform duration-700 ease-in-out mb-4 relative h-[200px] w-full">
                     <Image
-                      src={relatedProject.imageUrl}
+                      src={(relatedProject.headingImage ?? relatedProject.imageUrl) as string | StaticImageData}
                       alt={relatedProject.title}
                       fill
                       sizes="(max-width: 1024px) 100vw, 33vw"

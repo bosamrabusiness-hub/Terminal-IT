@@ -29,7 +29,7 @@ export default function Backdrop() {
   };
 
   return (
-    <motion.svg className="absolute right-[600px] top-0 h-full w-24 fill-[#0C0C0C] stroke-none">
+    <motion.svg className="hidden md:block absolute right-[600px] top-0 h-full w-24 fill-[#0C0C0C] stroke-none">
       <motion.path variants={curve} initial="initial" animate="enter" exit="exit" />
     </motion.svg>
   );

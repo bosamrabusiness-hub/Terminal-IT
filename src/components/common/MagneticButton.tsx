@@ -6,9 +6,18 @@ import { useMagnetic } from '../hooks/useMagnetic';
 
 type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   size?: 'default' | 'md' | 'lg' | 'xl';
+  enableMagnet?: boolean;
+  hoverScale?: number | null;
 };
 
-export default function MagneticButton({ children, className = '', size = 'md', ...props }: Props) {
+export default function MagneticButton({
+  children,
+  className = '',
+  size = 'md',
+  enableMagnet = true,
+  hoverScale = 1.08,
+  ...props
+}: Props) {
   const elementRef = useRef<HTMLButtonElement | null>(null);
   const {
     position: { x, y },
@@ -31,11 +40,11 @@ export default function MagneticButton({ children, className = '', size = 'md', 
     <MotionButton
       ref={elementRef}
       className={`rounded-full border border-white/30 bg-transparent text-details-white ${sizeClass} ${className}`}
-      animate={{ x, y }}
+      animate={enableMagnet ? { x, y } : undefined}
       transition={{ type: 'spring', damping: 15, stiffness: 150, mass: 0.1 }}
-      onPointerMove={handleMagneticMove}
-      onPointerOut={handleMagneticOut}
-      whileHover={{ scale: 1.08 }}
+      onPointerMove={enableMagnet ? handleMagneticMove : undefined}
+      onPointerOut={enableMagnet ? handleMagneticOut : undefined}
+      whileHover={hoverScale ? { scale: hoverScale } : undefined}
       {...props}
     >
       <span className="relative">{children}</span>

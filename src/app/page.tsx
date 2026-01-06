@@ -2,6 +2,8 @@
 // 'use client';
 
 import Hero from '@/components/sections/Hero';
+import MobileHero from '@/components/sections/Hero/Mobile';
+import { ShowOnMobile, ShowOnDesktop } from '@/components/mobile/Visibility';
 import About from '@/components/sections/about';
 import HorizontalSection from '@/components/sections/horizontalScroll';
 import StitchSection from '@/components/sections/stitch';
@@ -14,10 +16,17 @@ import Footer from '@/components/footer';
 export default function HomePage() {
   return (
     <>
-      <Hero id="hero" />
+      <ShowOnDesktop>
+        <Hero id="hero" />
+      </ShowOnDesktop>
+      <ShowOnMobile>
+        <MobileHero id="hero" />
+      </ShowOnMobile>
       <main className="bg-mainbody-weg relative z-20">
         <About />
-        <StitchSection />
+        <ShowOnDesktop>
+          <StitchSection />
+        </ShowOnDesktop>
         <HorizontalSection />
         <Specialization />
         <Works id="projects" />

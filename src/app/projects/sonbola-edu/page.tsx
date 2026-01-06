@@ -5,12 +5,12 @@
  import CardWrapper from '@/components/sections/horizontalScroll/cardWrapper';
  import { useEffect, useRef, useState } from 'react';
  import { useScroll, useTransform } from 'framer-motion';
- import { motion } from 'framer-motion';
- import AnimatedButton from '@/components/common/AnimatedButton';
- import sonbolaDash from '../../../../assets/Sonbola-dash-terminal.png';
- import sonbolaLesson from '../../../../assets/sonbola-lesson-terminal.png';
- import sonbolaAdmin from '../../../../assets/sonbola-admin-terminal.png';
- import sonbolaDashboard from '../../../../assets/sonbola-dashboard.png';
+import { motion } from 'framer-motion';
+import AnimatedButton from '@/components/common/AnimatedButton';
+import sonbolaDash from '../../../../assets/Sonbola-dash-terminal.png';
+import sonbolaLesson from '../../../../assets/sonbola-lesson-terminal.png';
+import sonbolaAdmin from '../../../../assets/sonbola-admin-terminal.png';
+import sonbolaDashboard from '../../../../assets/sonbola-dashboard.png';
 
 export default function SonbolaEduPage() {
   const container = useRef<null>(null);
@@ -37,10 +37,10 @@ export default function SonbolaEduPage() {
   return (
     <ProjectLayout slug="sonbola-edu">
       <section className="px-[10px] md:px-[20px] lg:px-[70px] pt-[4rem] md:pt-[6rem] lg:pt-[8rem]">
-        <div className="grid grid-cols-[18rem_1fr] md:grid-cols-[22rem_1fr] lg:grid-cols-[24rem_1fr] items-start gap-[3rem]">
-          <h2 className="section-heading mb-0 scale-[0.92] origin-left">Overview</h2>
+        <div className="grid grid-cols-1 md:grid-cols-[22rem_1fr] lg:grid-cols-[24rem_1fr] items-start gap-[1.5rem] md:gap-[3rem]">
+          <h2 className="section-heading mb-0 scale-[0.86] md:scale-[0.92] origin-left">Overview</h2>
           <div className="flex flex-col gap-[1rem] md:gap-[1.5rem] lg:gap-4 text-left pt-[0.25rem]">
-            <p className="text-[clamp(0.95rem,2vw+0.75rem,1.48rem)] leading-[clamp(1.15rem,2vw+0.95rem,1.82rem)]">
+            <p className="text-[clamp(0.9rem,2vw+0.65rem,1.38rem)] leading-[clamp(1.1rem,2vw+0.9rem,1.72rem)]">
               <strong>Gamified</strong>, <strong>community‑driven</strong> learning platform for
               <strong> tracks</strong>, <strong> lessons</strong>, <strong> quizzes</strong> and
               <strong> analytics</strong>.
@@ -50,10 +50,10 @@ export default function SonbolaEduPage() {
       </section>
 
       <section className="px-[10px] md:px-[20px] lg:px-[70px] py-[3rem] md:py-[4rem] lg:py-[6rem] bg-mainbody-weg">
-        <div className="grid grid-cols-[18rem_1fr] md:grid-cols-[22rem_1fr] lg:grid-cols-[24rem_1fr] items-start gap-[3rem]">
-          <h2 className="section-heading mb-0 scale-[0.92] origin-left">Description</h2>
+        <div className="grid grid-cols-1 md:grid-cols-[22rem_1fr] lg:grid-cols-[24rem_1fr] items-start gap-[1.5rem] md:gap-[3rem]">
+          <h2 className="section-heading mb-0 scale-[0.86] md:scale-[0.92] origin-left">Description</h2>
           <div className="flex flex-col gap-[1rem] md:gap-[1.5rem] lg:gap-4 text-left pt-[0.25rem]">
-            <p className="text-[clamp(0.95rem,2vw+0.75rem,1.48rem)] leading-[clamp(1.15rem,2vw+0.95rem,1.82rem)]">
+            <p className="text-[clamp(0.9rem,2vw+0.65rem,1.38rem)] leading-[clamp(1.1rem,2vw+0.9rem,1.72rem)]">
               <strong>Modern education app</strong> blending
               <strong> structured courses</strong> with <strong>social features</strong>,
               <strong> streaks</strong> and <strong>leaderboards</strong>. Frontend delivers
@@ -68,20 +68,26 @@ export default function SonbolaEduPage() {
               <strong> global sticky‑note widget</strong>.
             </p>
           </div>
-        </div>
+       </div>
       </section>
 
       <section className="relative h-[300svh] overflow-x-clip px-[0.62rem] md:h-[200svh]" ref={container}>
-        <div className="sticky top-12 h-svh pb-[1.88rem]">
+        <div
+          className="sticky top-[var(--navbar-height)] h-svh pb-[1.88rem]"
+          style={{
+            paddingLeft: 'calc(env(safe-area-inset-left) + 0.63rem)',
+            paddingRight: 'calc(env(safe-area-inset-right) + 0.63rem)',
+          }}
+        >
           <div
             className="
-section-heading
-mt-[2rem] md:mt-[3rem] lg:mt-[3.5rem]
-ml-[1.88rem] md:ml-[4.38rem] lg:ml-[4.38rem]
-mr-[0.63rem] md:mr-[1.25rem] lg:mr-[1.25rem]
-mb-[1.875rem] lg:mb-[2.5rem] scale-[0.92] origin-left
-flex items-center justify-between
-"
+ section-heading
+ mt-[2rem] md:mt-[3rem] lg:mt-[3.5rem]
+ ml-[1.88rem] md:ml-[4.38rem] lg:ml-[4.38rem]
+ mr-[0.63rem] md:mr-[1.25rem] lg:mr-[1.25rem]
+ mb-[1.5rem] md:mb-[1.875rem] lg:mb-[2.5rem] scale-[0.86] md:scale-[0.92] origin-left
+ flex items-center justify-between
+ "
           >
             <h2>Preview</h2>
             <AnimatedButton
@@ -90,11 +96,11 @@ flex items-center justify-between
               className="ml-4"
             />
           </div>
-          <div className="h-svh mt-[20px] md:mt-[30px] lg:mt-[40px]">
+          <div className="h-svh mt-[16px] md:mt-[30px] lg:mt-[40px]">
             <motion.div
-              style={{ x, willChange: 'transform' }}
+              style={{ x, willChange: 'transform', transform: 'translateZ(0)' }}
               ref={stackRef}
-              className="flex w-auto min-w-max gap-2 overflow-hidden"
+              className="flex w-auto min-w-max gap-2 overflow-hidden pr-[0.63rem]"
             >
               {images.map((img, i) => (
                 <CardWrapper key={i}>
@@ -115,10 +121,10 @@ flex items-center justify-between
       </section>
 
       <section className="px-[10px] md:px-[20px] lg:px-[70px] py-[3rem] md:py-[4rem] lg:py-[6rem]">
-        <h2 className="section-heading mb-8 scale-[0.92] origin-left">Technologies Used</h2>
+        <h2 className="section-heading mb-8 scale-[0.86] md:scale-[0.92] origin-left">Technologies Used</h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div>
-            <h3 className="subheading mb-4 scale-[0.95] origin-left">Frontend</h3>
+            <h3 className="subheading mb-4 scale-[0.9] md:scale-[0.95] origin-left">Frontend</h3>
             <div className="flex flex-wrap gap-2">
               {[
                 'React',
@@ -151,7 +157,7 @@ flex items-center justify-between
             </div>
           </div>
           <div>
-            <h3 className="subheading mb-4 scale-[0.95] origin-left">Backend</h3>
+            <h3 className="subheading mb-4 scale-[0.9] md:scale-[0.95] origin-left">Backend</h3>
             <div className="flex flex-wrap gap-2">
               {['Node.js', 'Express', 'Prisma', 'PostgreSQL'].map((tech) => (
                 <span

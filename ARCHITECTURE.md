@@ -1,31 +1,33 @@
 # Project Architecture Overview
 
 ## Tech Stack
-- Framework: Next.js 15 (App Router)
+- Framework: Next.js 16 (App Router)
 - Language: TypeScript (strict typing across components)
 - UI: React 18, Tailwind CSS (utility classes), SCSS Modules (local styles)
 - Animation: GSAP (including ScrollTo and ScrollTrigger), Framer Motion
-- Images: Next/Image with remote patterns ([next.config.ts](file:///c:/Ahmed/Terminal-portofolio1/next.config.ts))
-- Tooling: ESLint, Prettier, PostCSS, Tailwind plugins
+- Images: Next/Image with remote patterns ([next.config.js](file:///c:/Ahmed/Terminal-portofolio1/next.config.js))
+- Tooling: ESLint (Flat config), Prettier, PostCSS, Tailwind plugins
 
 ## Directory Layout
 - Root
-  - Build and tooling: [package.json](file:///c:/Ahmed/Terminal-portofolio1/package.json), [tailwind.config.ts](file:///c:/Ahmed/Terminal-portofolio1/tailwind.config.ts), [next.config.ts](file:///c:/Ahmed/Terminal-portofolio1/next.config.ts)
+  - Build and tooling: [package.json](file:///c:/Ahmed/Terminal-portofolio1/package.json), [tailwind.config.ts](file:///c:/Ahmed/Terminal-portofolio1/tailwind.config.ts), [next.config.js](file:///c:/Ahmed/Terminal-portofolio1/next.config.js), [eslint.config.mjs](file:///c:/Ahmed/Terminal-portofolio1/eslint.config.mjs)
   - Static assets: [public](file:///c:/Ahmed/Terminal-portofolio1/public)
 - App (Next.js App Router)
   - Global styling: [globals.css](file:///c:/Ahmed/Terminal-portofolio1/src/app/globals.css)
   - Root layout and providers:
     - [layout.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/app/layout.tsx) — wraps pages with AppProvider and custom Providers, mounts Navbar and PreLoader
     - [provider.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/app/provider.tsx) — page transition layers via next-transition-router + GSAP
+    - [template.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/app/template.tsx) — applies Lenis smooth scrolling with ReactLenis root
   - Home page composition: [page.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/app/page.tsx)
   - Projects area:
     - [projects/ProjectLayout.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/app/projects/ProjectLayout.tsx) — shared layout, hero banner, related projects
     - [projects/RelatedProjectsSection.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/app/projects/RelatedProjectsSection.tsx) — linked cards for more projects
     - [projects/elysium/page.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/app/projects/elysium/page.tsx), [ParallaxIntro.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/app/projects/elysium/ParallaxIntro.tsx)
+    - [projects/kurskonfigurator/page.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/app/projects/kurskonfigurator/page.tsx), [projects/sonbola-edu/page.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/app/projects/sonbola-edu/page.tsx)
 - Components
   - Context: [AppContext.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/components/context/AppContext.tsx) — preloader flow, hash-scroll, scramble refs, hero icon control
   - Navigation: [Navbar](file:///c:/Ahmed/Terminal-portofolio1/src/components/Navbar/Navbar.tsx) with [DesktopNav](file:///c:/Ahmed/Terminal-portofolio1/src/components/Navbar/DesktopNav.tsx), [MobileNav](file:///c:/Ahmed/Terminal-portofolio1/src/components/Navbar/MobileNav.tsx), and [NavItemLink](file:///c:/Ahmed/Terminal-portofolio1/src/components/Navbar/NavItemLink.tsx)
-  - Common UI: [HeroArrow](file:///c:/Ahmed/Terminal-portofolio1/src/components/common/HeroArrow.tsx), [HeadingArrow](file:///c:/Ahmed/Terminal-portofolio1/src/components/common/HeadingArrow.tsx), [AnimatedButton](file:///c:/Ahmed/Terminal-portofolio1/src/components/common/AnimatedButton.tsx), [toggle](file:///c:/Ahmed/Terminal-portofolio1/src/components/common/toggle.tsx)
+  - Common UI: [AnimatedButton](file:///c:/Ahmed/Terminal-portofolio1/src/components/common/AnimatedButton.tsx), [FaviconSwitcher](file:///c:/Ahmed/Terminal-portofolio1/src/components/common/FaviconSwitcher.tsx), [MagneticButton](file:///c:/Ahmed/Terminal-portofolio1/src/components/common/MagneticButton.tsx), [PreviewImageBox](file:///c:/Ahmed/Terminal-portofolio1/src/components/common/PreviewImageBox.tsx), [TerminalIcon](file:///c:/Ahmed/Terminal-portofolio1/src/components/common/TerminalIcon.tsx), [toggle](file:///c:/Ahmed/Terminal-portofolio1/src/components/common/toggle.tsx)
   - Sections:
     - [Hero](file:///c:/Ahmed/Terminal-portofolio1/src/components/sections/Hero/index.tsx) — sticky hero with headline and icon
     - [about](file:///c:/Ahmed/Terminal-portofolio1/src/components/sections/about/index.tsx) — heading and intro copy
@@ -33,9 +35,11 @@
     - [works](file:///c:/Ahmed/Terminal-portofolio1/src/components/sections/works/index.tsx) — recent projects carousel with modal preview ([style.module.scss](file:///c:/Ahmed/Terminal-portofolio1/src/components/sections/works/style.module.scss), [projectData.ts](file:///c:/Ahmed/Terminal-portofolio1/src/components/sections/works/projectData.ts))
     - [process](file:///c:/Ahmed/Terminal-portofolio1/src/components/sections/process/index.tsx) — sticky image and descriptive text
     - [purpose](file:///c:/Ahmed/Terminal-portofolio1/src/components/sections/purpose/index.tsx), [specialization](file:///c:/Ahmed/Terminal-portofolio1/src/components/sections/specialization/index.tsx)
+    - [stitch](file:///c:/Ahmed/Terminal-portofolio1/src/components/sections/stitch/index.tsx) — Soft window frame and Windows Explorer UI ([SoftWindowFrame.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/components/sections/stitch/SoftWindowFrame.tsx), [WindowsExplorer.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/components/sections/stitch/WindowsExplorer.tsx))
   - Footer: [footer](file:///c:/Ahmed/Terminal-portofolio1/src/components/footer/index.tsx)
-  - Debug: [tailwindIndicator](file:///c:/Ahmed/Terminal-portofolio1/src/components/debugger/tailwindIndicator.tsx)
-  - Hooks: [useMedia](file:///c:/Ahmed/Terminal-portofolio1/src/components/hooks/useMedia.tsx)
+  - Hooks: [useMedia](file:///c:/Ahmed/Terminal-portofolio1/src/components/hooks/useMedia.tsx), [useMagnetic](file:///c:/Ahmed/Terminal-portofolio1/src/components/hooks/useMagnetic.ts)
+  - Offcanvas: [Offcanvas](file:///c:/Ahmed/Terminal-portofolio1/src/components/Offcanvas/Offcanvas.tsx) with [Backdrop](file:///c:/Ahmed/Terminal-portofolio1/src/components/Offcanvas/Backdrop.tsx), [OffcanvasBody](file:///c:/Ahmed/Terminal-portofolio1/src/components/Offcanvas/OffcanvasBody.tsx), [OffcanvasToggle](file:///c:/Ahmed/Terminal-portofolio1/src/components/Offcanvas/OffcanvasToggle.tsx), [Links](file:///c:/Ahmed/Terminal-portofolio1/src/components/Offcanvas/Links.tsx)
+  - Preloader: [Preloader](file:///c:/Ahmed/Terminal-portofolio1/src/components/Preloader/index.tsx), [PreLoaderText](file:///c:/Ahmed/Terminal-portofolio1/src/components/Preloader/PreLoaderText.tsx), [IntroOverlay](file:///c:/Ahmed/Terminal-portofolio1/src/components/Preloader/IntroOverlay.tsx)
 - Config
   - Navigation items: [navItems.ts](file:///c:/Ahmed/Terminal-portofolio1/src/config/navItems.ts)
 
@@ -43,7 +47,8 @@
 1. Bootstrapping
    - Root layout applies fonts and mounts providers: [layout.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/app/layout.tsx)
    - AppProvider initializes page-locking and preloader, then releases scroll and triggers hero animations: [AppContext.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/components/context/AppContext.tsx)
-   - Providers manage route transitions using GSAP timelines: [provider.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/app/provider.tsx)
+   - Providers manage route transitions using GSAP timelines with next-transition-router: [provider.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/app/provider.tsx)
+   - Template wraps content with Lenis smooth-scrolling root: [template.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/app/template.tsx)
 2. Navigation
    - Desktop/Mobile nav observe scroll direction via Framer Motion useScroll to hide/show, and smooth scroll to anchors using GSAP ScrollTo: [DesktopNav.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/components/Navbar/DesktopNav.tsx), [MobileNav.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/components/Navbar/MobileNav.tsx), [NavItemLink.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/components/Navbar/NavItemLink.tsx)
 3. Home Page Sections
@@ -74,7 +79,7 @@
 
 ## Image Handling
 - All images load via Next/Image with appropriate sizes and parent positioning
-- Remote patterns allow images from Unsplash and other specified hosts: [next.config.ts](file:///c:/Ahmed/Terminal-portofolio1/next.config.ts)
+- Remote patterns allow images from Unsplash and other specified hosts: [next.config.js](file:///c:/Ahmed/Terminal-portofolio1/next.config.js)
 
 ## Navigation Model
 - Links defined in [navItems.ts](file:///c:/Ahmed/Terminal-portofolio1/src/config/navItems.ts) with per-target offsets
@@ -82,7 +87,7 @@
 
 ## Build & Run
 - Scripts: dev/build/start/lint — see [package.json](file:///c:/Ahmed/Terminal-portofolio1/package.json)
-- ESLint with Next config, Prettier for formatting
+- ESLint Flat config with Next plugin, Prettier for formatting
 
 ## Key Design Decisions
 - App Router structure keeps global providers and navigation consistent across routes

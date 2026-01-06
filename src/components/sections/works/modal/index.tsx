@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 
 interface ModalProjectData {
   id: string;
@@ -11,6 +11,8 @@ interface ModalProjectData {
   imageUrl: string; // Added imageUrl here
   externalUrl?: string;
   comingSoon?: boolean;
+  headingImage?: string | StaticImageData;
+  gallery?: (string | StaticImageData)[];
 }
 
 interface ModalProps {
@@ -33,6 +35,8 @@ export default function Modal({
     imageUrl,
     externalUrl,
     comingSoon,
+    headingImage,
+    gallery,
   } = projectsData;
 
   const handleHover = (e: React.MouseEvent, active: boolean) => {
@@ -64,28 +68,30 @@ export default function Modal({
           <span className="transition-colors duration-200 ease-out">
             {title}
           </span>
-          <span className="relative w-[1.63rem] h-[1.63rem] md:w-[2.625rem] md:h-[2.625rem] md:group-hover:invert">
-            <Image
-              src="/arrow-up.svg"
-              alt="arrow icon"
-              fill
-              sizes="26px"
-              style={{ objectFit: 'contain' }}
-            />
+          <span className="relative inline-flex items-center justify-center w-[1.63rem] h-[1.63rem] md:w-[2.625rem] md:h-[2.625rem] md:group-hover:invert">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="size-[1.3rem]">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M7 17l9-9M7 8h8v8" />
+            </svg>
           </span>
         </h3>
       </div>
 
-      {/* Updated to use the imageUrl dynamically */}
+      {/* Updated to choose preview image similar to desktop logic */}
       <div className="relative my-[0.63rem] h-72 w-[calc(100%-20px)] mx-[10px] bg-hero-dark p-[1.41rem_3.1rem] md:hidden">
         <div className="relative w-full h-full">
-          <Image
-            src={imageUrl} // Dynamically use the imageUrl from projectData
-            alt={`${title} image`}
-            fill
-            sizes="(max-width: 768px) calc(100vw - 20px), 400px"
-            style={{ objectFit: 'cover', objectPosition: 'center' }}
-          />
+          {(headingImage ?? (gallery && gallery[0]) ?? imageUrl) ? (
+            <Image
+              src={(headingImage ?? (gallery && gallery[0]) ?? imageUrl) as string | StaticImageData}
+              alt={`${title} image`}
+              fill
+              sizes="(max-width: 768px) calc(100vw - 20px), 400px"
+              style={{ objectFit: 'cover', objectPosition: 'center' }}
+            />
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center bg-white/5 text-small">
+              No preview
+            </div>
+          )}
         </div>
       </div>
     </div>

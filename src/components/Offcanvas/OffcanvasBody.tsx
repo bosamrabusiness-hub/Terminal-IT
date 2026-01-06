@@ -30,10 +30,17 @@ export default function OffcanvasBody({ onClose }: Props) {
       exit="exit"
     >
       <Backdrop />
-      <div className="absolute right-0 top-0 h-screen w-[600px] bg-hero-dark text-details-white">
-        <div className="flex h-full flex-col justify-between p-10 md:p-16 lg:p-24">
+      <div className="absolute right-0 top-0 h-screen w-full md:w-[600px] bg-hero-dark text-details-white">
+        <div
+          className="flex h-full flex-col justify-between p-6 md:p-10 lg:p-24"
+          style={{
+            paddingLeft: 'calc(env(safe-area-inset-left) + 1rem)',
+            paddingRight: 'calc(env(safe-area-inset-right) + 1rem)',
+            paddingTop: 'calc(env(safe-area-inset-top) + 0.75rem)',
+          }}
+        >
           <Links onItemClick={onClose} />
-          <div className="mt-10 flex gap-6 text-sm text-mainbody-weg/70">
+          <div className="mt-10 hidden md:flex gap-6 text-sm text-mainbody-weg/70">
             <span className="opacity-60 cursor-not-allowed" aria-disabled="true">
               Facebook
             </span>

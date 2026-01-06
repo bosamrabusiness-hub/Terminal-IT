@@ -70,6 +70,16 @@ export default function Works({ id }: WorksProps) {
 
   useEffect(() => {
     // Move Container
+    // Hint GPU acceleration and pre-optimize paint paths
+    if (modalContainer.current) {
+      gsap.set(modalContainer.current, { willChange: 'left, top', force3D: true });
+    }
+    if (cursor.current) {
+      gsap.set(cursor.current, { willChange: 'left, top', force3D: true });
+    }
+    if (cursorLabel.current) {
+      gsap.set(cursorLabel.current, { willChange: 'left, top', force3D: true });
+    }
     xMoveContainer.current = gsap.quickTo(modalContainer.current!, 'left', {
       duration: 0.8,
       ease: 'power3',
@@ -175,16 +185,22 @@ export default function Works({ id }: WorksProps) {
                     key={`modal_${idx}`}
                   >
                     <div className="relative h-full w-full">
-                      <Image
-                        src={previewImage}
-                        alt="image"
-                        fill
-                        sizes="400px"
-                        style={{
-                          objectFit: 'cover',
-                          objectPosition: 'center',
-                        }}
-                      />
+                      {previewImage ? (
+                        <Image
+                          src={previewImage}
+                          alt="image"
+                          fill
+                          sizes="400px"
+                          style={{
+                            objectFit: 'cover',
+                            objectPosition: 'center',
+                          }}
+                        />
+                      ) : (
+                        <div className="absolute inset-0 flex items-center justify-center bg-white/5 text-small">
+                          No preview
+                        </div>
+                      )}
                     </div>
                   </div>
                 );

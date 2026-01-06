@@ -6,6 +6,7 @@ import SoftWindowFrame from '../stitch/SoftWindowFrame';
 import { useEffect, useState } from 'react';
 import { useScramble } from 'use-scramble';
 import { useAppContext } from '@/components/context/AppContext';
+import { ShowOnDesktop } from '@/components/mobile/Visibility';
 
 interface HeroProps {
   id?: string;
@@ -47,13 +48,13 @@ const Hero: React.FC<HeroProps> = ({ id }) => {
         }}
       />
       <SoftWindowFrame className="fixed top-0 left-0 right-0 z-999 pointer-events-none h-[calc(var(--navbar-height)+var(--hero-section--height))]" />
-      <div className="absolute bottom-24 left-[1.88rem] md:left-[4.38rem] lg:left-[4.38rem] right-[0.63rem] md:right-[1.25rem] lg:right-[1.25rem] z-5">
-        <div className="grid grid-cols-[auto_1fr] items-baseline gap-3">
+      <div className="absolute bottom-16 md:bottom-24 left-[1.88rem] md:left-[4.38rem] lg:left-[4.38rem] right-[0.63rem] md:right-[1.25rem] lg:right-[1.25rem] z-5">
+        <div className="grid grid-cols-[auto_1fr] items-baseline gap-2 md:gap-3">
           <div className="flex items-baseline">
             <TerminalIcon />
           </div>
           <div>
-            <h1 className="display-heading display-heading--compact whitespace-nowrap">
+            <h1 className="display-heading display-heading--compact lg:whitespace-nowrap">
               Terminal Software House
             </h1>
             <div className="mt-4 flex items-start lg:items-center gap-8">
@@ -63,22 +64,24 @@ const Hero: React.FC<HeroProps> = ({ id }) => {
                   Transforming ideas into powerful digital solutions with cutting-edge technology and innovative design.
                 </p>
               </div>
-              <div className="hidden lg:flex items-center gap-6 opacity-30 hover:opacity-60 transition-opacity duration-300 font-jetbrains-mono">
-                <div className="flex flex-col items-center gap-2">
-                  <span className="material-icons-outlined text-3xl text-details-white">lightbulb</span>
-                  <span className="text-[10px] tracking-widest uppercase opacity-70">Idea</span>
+              <ShowOnDesktop>
+                <div className="flex items-center gap-6 opacity-30 hover:opacity-60 transition-opacity duration-300 font-jetbrains-mono">
+                  <div className="flex flex-col items-center gap-2">
+                    <span className="material-icons-outlined text-3xl text-details-white">lightbulb</span>
+                    <span className="text-[10px] tracking-widest uppercase opacity-70">Idea</span>
+                  </div>
+                  <div className="w-12 h-px bg-white/20" />
+                  <div className="flex flex-col items-center gap-2">
+                    <span className="material-icons-outlined text-3xl text-details-white">terminal</span>
+                    <span className="text-[10px] tracking-widest uppercase opacity-70">Build</span>
+                  </div>
+                  <div className="w-12 h-px bg-white/20" />
+                  <div className="flex flex-col items-center gap-2">
+                    <span className="material-icons-outlined text-3xl text-details-white">rocket_launch</span>
+                    <span className="text-[10px] tracking-widest uppercase opacity-70">Ship</span>
+                  </div>
                 </div>
-                <div className="w-12 h-px bg-white/20" />
-                <div className="flex flex-col items-center gap-2">
-                  <span className="material-icons-outlined text-3xl text-details-white">terminal</span>
-                  <span className="text-[10px] tracking-widest uppercase opacity-70">Build</span>
-                </div>
-                <div className="w-12 h-px bg-white/20" />
-                <div className="flex flex-col items-center gap-2">
-                  <span className="material-icons-outlined text-3xl text-details-white">rocket_launch</span>
-                  <span className="text-[10px] tracking-widest uppercase opacity-70">Ship</span>
-                </div>
-              </div>
+              </ShowOnDesktop>
             </div>
             <div className="mt-8">
               <span

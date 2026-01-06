@@ -9,7 +9,7 @@ interface TtextHoverProps {
 
 export default function TextHover({ titile1, titile2 }: TtextHoverProps) {
   return (
-    <div className="group relative inline-block overflow-hidden cursor-pointer">
+    <div className="group relative block md:inline-block overflow-hidden cursor-pointer">
       <div className="relative">
         <span className="block transition-transform duration-500 ease-in-out group-hover:-translate-y-[calc(100%+5px)]">
           {titile1}

@@ -2,8 +2,17 @@
   position: fixed;
   top: 0;
   right: 0;
-  margin: 1.5rem;
+  padding-top: calc(env(safe-area-inset-top) + 0.75rem);
+  padding-right: calc(env(safe-area-inset-right) + 0.75rem);
   z-index: 60;
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    padding-top: 0;
+    padding-right: 0;
+    margin: 1.5rem;
+  }
 }
 
 .burger {
@@ -37,3 +46,9 @@
   bottom: 50%;
 }
 
+@media (max-width: 767px) {
+  .burger {
+    width: 1.4rem;
+    height: 0.8rem;
+  }
+}

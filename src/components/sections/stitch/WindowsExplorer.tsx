@@ -375,7 +375,7 @@ export default function WindowsExplorer() {
   };
 
   return (
-    <div className="relative mx-auto flex h-[85svh] w-[90%] max-w-[1400px] flex-col overflow-hidden rounded-[12px] border border-white/5 bg-[#1F2125] shadow-[0_20px_50px_-12px_rgba(0,0,0,0.7)]">
+    <div className="relative mx-auto flex h-[85svh] w-[95%] md:w-[90%] max-w-[1400px] flex-col overflow-hidden rounded-[12px] border border-white/5 bg-[#1F2125] shadow-[0_20px_50px_-12px_rgba(0,0,0,0.7)]">
       <div className="flex h-10 select-none items-center justify-between px-4 pt-2">
         <div className="flex items-center space-x-6">
           <div className="flex items-center space-x-2 text-[#A7ACB8]">
@@ -457,7 +457,7 @@ export default function WindowsExplorer() {
       </div>
 
       <div className="flex flex-1 overflow-hidden">
-        <div className="glass-sidebar w-[260px] overflow-y-auto border-r border-white/10 bg-[rgba(26,28,31,0.95)] px-2 py-4 text-sm">
+        <div className="glass-sidebar w-[200px] md:w-[260px] overflow-y-auto border-r border-white/10 bg-[rgba(26,28,31,0.95)] px-2 py-4 text-sm">
           <div className="mb-4 px-4">
             <h2 className="font-semibold text-[#E8EAF0] opacity-90">
               File Explorer
@@ -640,7 +640,7 @@ export default function WindowsExplorer() {
         </div>
 
         {selectedItem?.type === 'image' && (
-          <div className="w-[320px] flex-shrink-0 border-l border-white/10 bg-[#1A1C1F]">
+          <div className="hidden md:block w-[320px] flex-shrink-0 border-l border-white/10 bg-[#1A1C1F]">
             <div className="flex items-center justify-between border-b border-white/10 p-4">
               <span className="text-sm font-semibold text-[#E8EAF0]">Preview</span>
               <div className="flex space-x-2">

@@ -10,6 +10,7 @@ import {
   useMotionValueEvent,
 } from 'framer-motion';
 import { navItems } from '@/config/navItems';
+import useMedia from '../hooks/useMedia';
 import { NavItemLink } from './NavItemLink';
 
 const navVariants = {
@@ -39,6 +40,8 @@ export function MobileNav() {
   const [toggle, setToggle] = useState(false);
   const [hidden, setHidden] = useState(false);
   const { scrollY } = useScroll();
+  const isMobile = useMedia('(max-width: 1023px)');
+  const items = isMobile ? navItems.filter((i) => i.label !== 'Explorer') : navItems;
 
   // Evitar scroll en el fondo cuando el menú móvil está abierto
   useEffect(() => {
@@ -64,28 +67,7 @@ export function MobileNav() {
 
   return (
     <>
-      {/* Header móvil */}
-      <motion.div
-        variants={navVariants}
-        animate={hidden ? 'hidden' : 'visible'}
-        className="lg:hidden fixed top-0 left-0 w-screen h-[var(--navbar-height)] px-4 bg-transparent backdrop-blur-none flex items-center justify-end z-50 overflow-hidden" // Ensure w-screen is used
-      >
-        <button onClick={() => setToggle(true)} aria-label="Abrir menú móvil">
-          <svg
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            className="w-8 h-8 text-mainbody-weg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        </button>
-      </motion.div>
+      {/* mobile header trigger removed intentionally */}
 
       {/* Menú móvil deslizante */}
       <AnimatePresence>
@@ -97,9 +79,16 @@ export function MobileNav() {
             exit="exit"
             variants={menuVariants}
             className="fixed top-0 left-0 right-0 bottom-0 w-screen bg-hero-dark flex flex-col z-60 overflow-hidden" // Ensure w-screen is used
+            style={{ willChange: 'transform' }}
           >
             {/* Botón de cierre */}
-            <div className="flex items-center justify-end h-[var(--navbar-height)] px-4 border-b border-gray-200/25">
+            <div
+              className="flex items-center justify-end h-[var(--navbar-height)] border-b border-gray-200/25"
+              style={{
+                paddingLeft: 'calc(env(safe-area-inset-left) + 0.75rem)',
+                paddingRight: 'calc(env(safe-area-inset-right) + 0.75rem)',
+              }}
+            >
               <button
                 onClick={() => setToggle(false)}
                 aria-label="Cerrar menú móvil"
@@ -109,7 +98,7 @@ export function MobileNav() {
                   stroke="currentColor"
                   strokeWidth={2}
                   viewBox="0 0 24 24"
-                  className="w-8 h-8 text-mainbody-weg"
+                  className="w-9 h-9 md:w-8 md:h-8 text-mainbody-weg"
                 >
                   <path
                     strokeLinecap="round"
@@ -120,13 +109,30 @@ export function MobileNav() {
               </button>
             </div>
 
-            <ul className="flex flex-col gap-6 mt-8 ml-4 section-heading text-mainbody-weg">
-              {navItems.map((item) => (
-                <li key={item.id} onClick={() => setToggle(false)}>
-                  <NavItemLink item={item} />
-                </li>
-              ))}
-            </ul>
+            <div
+              className="flex-1 overflow-y-auto"
+              style={{
+                paddingLeft: 'calc(env(safe-area-inset-left) + 0.75rem)',
+                paddingRight: 'calc(env(safe-area-inset-right) + 0.75rem)',
+                paddingTop: '0.75rem',
+                paddingBottom: '0.75rem',
+              }}
+            >
+              <div className="mb-4">
+                <span className="text-[12px] tracking-[0.2em] uppercase text-mainbody-weg/70">
+                  Navigation
+                </span>
+                <div className="mt-2 h-px w-full bg-white/15" />
+              </div>
+              <ul className="flex flex-col gap-4 mt-2 md:mt-8 text-[clamp(1.75rem,8vw,3rem)] leading-[1.15] text-mainbody-weg">
+                {items.map((item) => (
+                  <li key={item.id} onClick={() => setToggle(false)}>
+                    <NavItemLink item={item} extraClassName="block py-3" plain />
+                  </li>
+                ))}
+              </ul>
+              <div style={{ height: 'env(safe-area-inset-bottom)' }} />
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
