@@ -38,8 +38,6 @@ export function Providers({ children }: { children: React.ReactNode }) {
     <TransitionRouter
       auto={true}
       leave={(next, from, to) => {
-        console.log({ from, to });
-
         const tl = gsap
           .timeline({
             onComplete: next,
@@ -123,12 +121,18 @@ export function Providers({ children }: { children: React.ReactNode }) {
             />
           ) : null}
         </AnimatePresence>
-        {children}
+        <div style={{ visibility: showPreloader ? 'hidden' : 'visible' }}>
+          {children}
+        </div>
       </main>
 
+      {/* Page transition layers with gradient */}
       <div
         ref={firstLayer}
-        className="fixed inset-0 z-70 translate-y-full bg-[#ff6347]"
+        className="fixed inset-0 z-70 translate-y-full"
+        style={{
+          background: 'linear-gradient(135deg, #E44021, #ff6347)',
+        }}
       />
       <div
         ref={secondLayer}

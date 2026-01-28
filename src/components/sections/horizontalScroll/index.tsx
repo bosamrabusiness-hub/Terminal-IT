@@ -2,7 +2,7 @@
 
 'use client';
 
-import { useScroll, useSpring, useTransform } from 'framer-motion';
+import { useScroll, useSpring, useTransform, motion } from 'framer-motion';
 import TerminalIcon from '../../common/TerminalIcon';
 import { useEffect, useRef, useState } from 'react';
 import Stacks from './stacks';
@@ -26,6 +26,10 @@ const HorizontalSection = () => {
     [0, 1],
     [0, width.windowWidth - width.width - 40]
   );
+
+  // Scroll indicator opacity (fades as user scrolls)
+  const indicatorOpacity = useTransform(scrollYProgress, [0, 0.15], [0.6, 0]);
+
   useEffect(() => {
     if (typeof window === 'undefined') return;
     const update = () => {
@@ -49,32 +53,47 @@ const HorizontalSection = () => {
         ref={container}
       >
         <div className="sticky top-12 h-svh pb-[1.88rem]">
-          <h2
+          <div
             className="
-section-heading
 mt-[2rem] md:mt-[3rem] lg:mt-[3.5rem]
 ml-[1.88rem] md:ml-[4.38rem] lg:ml-[4.38rem]
 mr-[0.63rem] md:mr-[1.25rem] lg:mr-[1.25rem]
 mb-[1.875rem] lg:mb-[2.5rem]
 "
           >
-            <span className="inline-block mr-[1.875rem] md:mr-[2.19rem] lg:mr-[2.19rem] text-details-red">
-              <TerminalIcon />
-            </span>
-            <span className="inline-flex items-baseline gap-2">
-              <span>The last piece of art</span>
-              <img
-                src="/assets/piece-of-art.png"
-                alt="piece of art"
-                style={{ height: '1em', width: 'auto' }}
-              />
-            </span>
-          </h2>
+            <div className="flex items-center gap-2 mb-2">
+              <span className="font-jetbrains-mono text-xs text-details-red tracking-wider">
+                // SHOWCASE
+              </span>
+              <div className="h-px flex-1 bg-gradient-to-r from-details-red/30 to-transparent max-w-[80px]" />
+            </div>
+            <h2 className="section-heading">
+              <span className="inline-block mr-[1.875rem] md:mr-[2.19rem] lg:mr-[2.19rem] text-details-red">
+                <TerminalIcon />
+              </span>
+              <span className="inline-flex items-baseline gap-2">
+                <span>The last piece of art</span>
+                <img
+                  src="/assets/piece-of-art.png"
+                  alt="piece of art"
+                  style={{ height: '1em', width: 'auto' }}
+                />
+              </span>
+            </h2>
+          </div>
           <Stacks ref={stackRef} x={x} progress={scrollYProgress} />
 
-          <button className="xs absolute bottom-[0.64rem] right-[0.64rem] py-4 px-0">
-            (Keep going ↓ )
-          </button>
+          <motion.button
+            style={{ opacity: indicatorOpacity }}
+            className="absolute bottom-[0.64rem] right-[0.64rem] py-3 px-4 font-jetbrains-mono text-xs hover:text-details-red transition-colors duration-300 flex items-center gap-2"
+          >
+            <span className="w-4 h-4 rounded-full border border-current flex items-center justify-center animate-pulse-slow">
+              <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 1V7M4 7L1 4M4 7L7 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </span>
+            Keep going
+          </motion.button>
         </div>
       </section>
     </>

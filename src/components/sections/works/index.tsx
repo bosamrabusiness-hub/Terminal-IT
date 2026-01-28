@@ -132,19 +132,27 @@ export default function Works({ id }: WorksProps) {
       id={id}
       className="relative pt-[170px] md:pt-[170px] lg:pt-[250px] w-full"
     >
-      <h2
+      <div
         className="
-    section-heading pt-[170px] md:pt-[170px] lg:pt-[250px]
+    pt-[170px] md:pt-[170px] lg:pt-[250px]
     ml-[1.88rem] md:ml-[4.38rem] lg:ml-[4.38rem]
     mr-[0.63rem] md:mr-[1.25rem] lg:mr-[1.25rem]
     mb-[1.875rem] lg:mb-[2.5rem]
     "
       >
-        <span className="inline-block mr-[1.875rem] md:mr-[2.19rem] lg:mr-[2.19rem] text-details-red">
-          <TerminalIcon />
-        </span>
-        <span>Recent projects</span>
-      </h2>
+        <div className="flex items-center gap-2 mb-3">
+          <span className="font-jetbrains-mono text-xs text-details-red tracking-wider">
+            // PROJECTS
+          </span>
+          <div className="h-px flex-1 bg-gradient-to-r from-details-red/30 to-transparent max-w-[100px]" />
+        </div>
+        <h2 className="section-heading">
+          <span className="inline-block mr-[1.875rem] md:mr-[2.19rem] lg:mr-[2.19rem] text-details-red">
+            <TerminalIcon />
+          </span>
+          <span>Recent projects</span>
+        </h2>
+      </div>
       <div
         onMouseMove={(e) => {
           moveItems(e.clientX, e.clientY);
@@ -211,20 +219,20 @@ export default function Works({ id }: WorksProps) {
           <motion.div
             ref={cursor}
             style={{ pointerEvents: 'auto' }}
-            className={`${styles.cursor} flex items-center justify-center space-x-1 text-[12px] font-medium`}
+            className={`${styles.cursor} flex items-center justify-center space-x-1.5 text-[12px] font-medium font-jetbrains-mono`}
             variants={cursorAnimation}
             initial="initial"
             animate={active ? 'enter' : 'closed'}
           >
             <span
-              className="inline-block rounded-sm bg-[#bebeb0] p-1 text-center font-bold"
+              className="inline-block rounded-md bg-details-red p-1.5 text-center text-white shadow-glow-sm"
               ref={cursorLabel}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                strokeWidth={1.5}
+                strokeWidth={2}
                 stroke="currentColor"
                 className="size-3"
               >
@@ -235,7 +243,7 @@ export default function Works({ id }: WorksProps) {
                 />
               </svg>
             </span>
-            <span className="inline-block">VIEW</span>
+            <span className="inline-block tracking-wider">VIEW</span>
           </motion.div>
         </>
       </div>

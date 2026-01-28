@@ -8,6 +8,7 @@ import Navbar from '@/components/Navbar/Navbar';
 import { AppProvider } from '../components/context/AppContext';
 import { Providers } from './provider';
 import Offcanvas from '@/components/Offcanvas/Offcanvas';
+import ScrollProgressBar from '@/components/common/ScrollProgressBar';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -35,8 +36,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Terminal Software House',
-  description: 'Terminal Software House Portfolio',
+  title: 'Terminal IT',
+  description: 'Terminal IT Portfolio',
 };
 
 export default function RootLayout({
@@ -64,6 +65,7 @@ export default function RootLayout({
               return <FaviconSwitcher />;
             })()}
             <Offcanvas />
+            <ScrollProgressBar />
             <Navbar />
             {children}
           </Providers>

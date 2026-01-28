@@ -25,7 +25,7 @@ const About = () => {
 
   return (
     <section className="mt-12 md:mt-12 lg:mt-[3.38rem]">
-      <div className="pt-[3.12rem] mb-[120px] md:mb-[160px] lg:mb-[180px]">
+      <div className="pt-[3.12rem] mb-[200px] md:mb-[280px] lg:mb-[340px]">
         <ScrollLines
           header={
             <div className="relative flex min-h-0 overflow-visible flex-col justify-start items-center text-center pl-[2.29rem] md:pl-[4.38rem] pr-2.5 md:pr-5 lg:pr-5">
@@ -35,8 +35,14 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ amount: 0.4, once: true }}
                 transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
-                className="flex flex-col items-center text-center space-y-6 md:space-y-8 lg:space-y-10"
+                className="flex flex-col items-center text-center space-y-6 md:space-y-8 lg:space-y-10 mt-10 md:mt-14 lg:mt-20"
               >
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="font-jetbrains-mono text-xs text-details-red tracking-wider">
+                    // ABOUT US
+                  </span>
+                  <div className="h-px flex-1 bg-gradient-to-r from-details-red/30 to-transparent max-w-[80px]" />
+                </div>
                 <h3 className="section-heading mt-2">Why Choose Terminal?</h3>
                 <p className="text-medium mt-3 md:mt-6 max-w-3xl mx-auto">
                   We combine cutting-edge technology with proven methodologies to deliver exceptional results.

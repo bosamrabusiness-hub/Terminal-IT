@@ -12,8 +12,6 @@ import { useAppContext } from '@/components/context/AppContext';
 import { motion } from 'framer-motion';
 import TerminalIcon from '@/components/common/TerminalIcon';
 
-
-
 /* ────────────────────────────────────────────────────────────────────────── */
 /* Helper: pick the next three projects                                      */
 function getNextProjects(
@@ -72,14 +70,40 @@ export default function ProjectLayout({ slug, children }: ProjectLayoutProps) {
           relative
           min-h-[calc(var(--hero-section--height)-6rem)]
           bg-hero-dark text-details-white
-          overflow-hidden 
+          overflow-hidden
           px-[1.88rem] md:px-[4.38rem]
         "
       >
+        {/* Grid background */}
+        <div
+          className="absolute inset-0 pointer-events-none opacity-[0.06] lg:opacity-[0.08]"
+          style={{
+            backgroundImage:
+              'linear-gradient(#bbb 1px, transparent 1px), linear-gradient(90deg, #bbb 1px, transparent 1px)',
+            backgroundSize: '60px 60px',
+          }}
+        />
+
         <div className="pb-10 pt-6 lg:pt-12" />
 
+        {/* Terminal-style label */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="absolute top-8 left-[1.88rem] md:left-[4.38rem] flex items-center gap-2"
+        >
+          <span className="font-jetbrains-mono text-xs text-details-red tracking-wider">
+            // PROJECT
+          </span>
+          <div className="h-px flex-1 bg-gradient-to-r from-details-red/30 to-transparent max-w-[100px]" />
+        </motion.div>
+
         {/* Main headline */}
-        <h1
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
           className="
             display-heading
             absolute bottom-9
@@ -88,8 +112,8 @@ export default function ProjectLayout({ slug, children }: ProjectLayoutProps) {
             scale-[0.88] md:scale-[1] origin-left
           "
         >
-          <TerminalIcon /> <span>{project.title}</span>
-        </h1>
+          <span className="text-details-red"><TerminalIcon /></span> <span>{project.title}</span>
+        </motion.h1>
       </section>
 
       {/* 2. UNIQUE PROJECT CONTENT */}

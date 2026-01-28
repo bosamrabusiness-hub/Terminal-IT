@@ -36,13 +36,11 @@ export const projectData: ProjectData[] = [
     companyName: 'UX/UI Case Study - WBS Gruppe AG',
     date: '2023-2024',
     imageUrl: '/project-2.png',
-    headingImage: '/trainspot-heading.png',
     title: 'Trainspot',
     color: '#0C0C0C',
     slug: 'trainspot',
     sector: 'Digital Education & Technology',
     myRole: 'UX/UI Designer & Agile Team Member',
-    gallery: ['/trainspot2s.svg', '/trainspot3s.svg', '/trainspot1s.svg'],
     externalUrl:
       'https://www.figma.com/proto/fL8vxgeOVwvC3acrsOfZvl/PROJECTS-WEB?page-id=6003%3A24158&node-id=6546-25201&viewport=-6873%2C-7452%2C0.66&t=jgtdkRGOqrAylpPb-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=6546%3A25201',
     comingSoon: true,
@@ -57,10 +55,6 @@ export const projectData: ProjectData[] = [
     slug: 'kundev',
     sector: 'E-Learning Solutions',
     myRole: 'Product Designer & Researcher',
-    gallery: [
-      '/kurskonfigurator-gallery1.jpg',
-      '/kurskonfigurator-gallery2.jpg',
-    ],
     externalUrl:
       'https://www.figma.com/proto/fL8vxgeOVwvC3acrsOfZvl/PROJECTS-WEB?page-id=8169%3A38862&node-id=8169-38863&viewport=328%2C326%2C0.61&t=GfkMhJA2Y4Pn0Trw-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=8169%3A38863',
     comingSoon: true,
@@ -76,7 +70,6 @@ export const projectData: ProjectData[] = [
     slug: 'designsystem',
     sector: 'Digital Product Design',
     myRole: 'Lead Visual Designer',
-    gallery: ['/trainspot1.png', '/trainspot2.png', '/trainspot3.png'],
     comingSoon: true,
   },
   {
@@ -89,7 +82,6 @@ export const projectData: ProjectData[] = [
     slug: 'kursplannung',
     sector: 'Learning Management',
     myRole: 'UX Strategist & Planner',
-    gallery: ['/kursplannung-gallery1.jpg'],
     comingSoon: true,
   },
 ];

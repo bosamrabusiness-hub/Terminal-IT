@@ -28,37 +28,29 @@ export default function ScrollLines({ lines, className, header }: Props) {
     return out;
   }, [safeLines]);
 
+  const iconMap: Record<string, string> = {
+    'Lightning Fast': 'bolt',
+    'Enterprise Security': 'shield',
+    'Cloud Native': 'cloud',
+  };
+
+  const colorMap: Record<string, string> = {
+    'Lightning Fast': 'from-[#f59e0b]/20 to-[#f59e0b]/5',
+    'Enterprise Security': 'from-details-red/20 to-details-red/5',
+    'Cloud Native': 'from-[#3b82f6]/20 to-[#3b82f6]/5',
+  };
+
   const Icon = ({ title }: { title: string }) => {
-    if (title === 'Lightning Fast') {
-      return (
-        <svg className="w-10 h-10 md:w-12 md:h-12" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-          <path stroke="#000000" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" d="M26 2L14 26H24L22 46L34 22H24L26 2Z"></path>
-          <path stroke="#000000" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" d="M8 14H14"></path>
-          <path stroke="#000000" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" d="M6 22H10"></path>
-          <path stroke="#000000" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" d="M8 30H12"></path>
-        </svg>
-      );
-    }
-    if (title === 'Enterprise Security') {
-      return (
-        <svg className="w-10 h-10 md:w-12 md:h-12" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-          <path stroke="#000000" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" d="M24 4L6 10V22C6 31.5 13.5 40.5 24 44C34.5 40.5 42 31.5 42 22V10L24 4Z"></path>
-          <path stroke="#000000" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" d="M16 22L22 28L32 16"></path>
-        </svg>
-      );
-    }
-    if (title === 'Cloud Native') {
-      return (
-        <svg className="w-10 h-10 md:w-12 md:h-12" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-          <path stroke="#000000" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" d="M35 38H13C8.02944 38 4 33.9706 4 29C4 24.5028 7.29977 20.7628 11.609 20.0936C12.1866 14.3725 17.0094 10 22.8 10C27.9946 10 32.4285 13.5135 33.6841 18.2565C38.3073 18.9954 42 22.8447 42 27.8C42 33.4333 38.866 38 35 38Z"></path>
-          <circle fill="#000000" cx="16" cy="28" r="2"></circle>
-          <circle fill="#000000" cx="24" cy="24" r="2"></circle>
-          <circle fill="#000000" cx="32" cy="28" r="2"></circle>
-          <path stroke="#000000" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" d="M16 28L24 24L32 28"></path>
-        </svg>
-      );
-    }
-    return null;
+    const iconName = iconMap[title];
+    if (!iconName) return null;
+    const gradientColor = colorMap[title] || 'from-details-red/20 to-details-red/5';
+    return (
+      <div className={`w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br ${gradientColor} border border-details-red/10 flex items-center justify-center shadow-glow-sm`}>
+        <span className="material-icons-outlined text-2xl md:text-3xl text-details-red">
+          {iconName}
+        </span>
+      </div>
+    );
   };
 
   useEffect(() => {
@@ -66,7 +58,6 @@ export default function ScrollLines({ lines, className, header }: Props) {
     if (!sectionRef.current || !stickyRef.current || itemsRef.current.length === 0)
       return;
 
-    // Hint GPU acceleration for animated elements
     gsap.set(itemsRef.current, { willChange: 'transform,opacity', force3D: true });
     gsap.set(stickyRef.current, { willChange: 'transform' });
 
@@ -81,13 +72,11 @@ export default function ScrollLines({ lines, className, header }: Props) {
       },
     });
 
-    // Keep header always visible on landing; no scroll animation for it
-
     itemsRef.current.forEach((el, i) => {
       tl.fromTo(
         el,
-        { opacity: 0, y: 40 },
-        { opacity: 1, y: 0, duration: 0.6, ease: 'none' },
+        { opacity: 0, y: 40, scale: 0.97 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: 'none' },
         i * 0.6
       );
     });
@@ -113,18 +102,18 @@ export default function ScrollLines({ lines, className, header }: Props) {
               ref={(el) => {
                 if (el) itemsRef.current[idx] = el as HTMLDivElement;
               }}
-              className="group"
+              className="group glass-card-light rounded-2xl p-5 md:p-6 max-w-2xl w-full transition-all duration-500 hover:shadow-card-hover"
             >
               <div className="flex items-center justify-center gap-5 md:gap-6 mb-3">
-                <div className="transition-transform duration-300 group-hover:-translate-y-1">
+                <div className="transition-all duration-500 group-hover:-translate-y-1 group-hover:scale-110">
                   <Icon title={pair.title} />
                 </div>
-                <h3 className="text-3xl md:text-[2.125rem] font-semibold leading-tight">
+                <h3 className="text-3xl md:text-[2.125rem] font-semibold leading-tight group-hover:text-details-red transition-colors duration-300">
                   {pair.title}
                 </h3>
               </div>
               {pair.desc ? (
-                <p className="text-medium md:text-[1.125rem] opacity-90 max-w-3xl mx-auto">
+                <p className="text-medium md:text-[1.125rem] opacity-70 max-w-3xl mx-auto leading-relaxed">
                   {pair.desc}
                 </p>
               ) : null}
