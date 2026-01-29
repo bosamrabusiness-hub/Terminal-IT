@@ -30,7 +30,7 @@ export default function OffcanvasToggle({ isOpen, onToggle }: Props) {
       <MagneticButton
         onClick={onToggle}
         aria-label="Offcanvas Toggle"
-        className="grid h-11 w-11 md:h-14 md:w-14 place-items-center rounded-full overflow-hidden border border-white/30 bg-hero-dark text-details-white shadow-md"
+        className="grid h-11 w-11 md:h-14 md:w-14 place-items-center rounded-full overflow-hidden border border-white/30 bg-black text-details-white shadow-md"
         enableMagnet={!isMobile}
         hoverScale={isMobile ? null : 1.08}
       >

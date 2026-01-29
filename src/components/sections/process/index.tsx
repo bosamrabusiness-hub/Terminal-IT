@@ -119,20 +119,6 @@ const Process = () => {
             </p>
           </div>
         </motion.div>
-
-        {/* Stats row */}
-        <motion.div variants={itemVariants} className="grid grid-cols-3 gap-4">
-          {[
-            { number: '50+', label: 'Projects' },
-            { number: '30+', label: 'Clients' },
-            { number: '99%', label: 'Satisfaction' },
-          ].map((stat) => (
-            <div key={stat.label} className="text-center glass-card-light rounded-xl p-4 transition-all duration-300 hover:shadow-card-hover group">
-              <p className="text-2xl md:text-3xl font-bold text-details-red group-hover:scale-110 transition-transform duration-300 inline-block">{stat.number}</p>
-              <p className="text-xs font-jetbrains-mono uppercase tracking-wider opacity-50 mt-1">{stat.label}</p>
-            </div>
-          ))}
-        </motion.div>
       </motion.div>
     </section>
   );

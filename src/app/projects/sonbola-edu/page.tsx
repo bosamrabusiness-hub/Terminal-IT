@@ -2,9 +2,8 @@
 
 import ProjectLayout from '@/app/projects/ProjectLayout';
 import PreviewImageBox from '@/components/common/PreviewImageBox';
-import CardWrapper from '@/components/sections/horizontalScroll/cardWrapper';
 import { useEffect, useRef, useState } from 'react';
-import { useScroll, useTransform, useInView } from 'framer-motion';
+import { useScroll, useTransform, useSpring, useInView } from 'framer-motion';
 import { motion } from 'framer-motion';
 import AnimatedButton from '@/components/common/AnimatedButton';
 import sonbolaDash from '../../../../assets/Sonbola-dash-terminal.png';
@@ -23,7 +22,8 @@ export default function SonbolaEduPage() {
   const techInView = useInView(techRef, { once: true, margin: '-100px' });
   const [w, setW] = useState({ windowWidth: 0, width: 0 });
   const { scrollYProgress } = useScroll({ target: container, offset: ['start', 'end'] });
-  const x = useTransform(scrollYProgress, [0, 1], [0, w.windowWidth - w.width - 40]);
+  const xRaw = useTransform(scrollYProgress, [0, 1], [0, w.windowWidth - w.width - 40]);
+  const x = useSpring(xRaw, { stiffness: 100, damping: 30, mass: 0.5 });
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -196,20 +196,37 @@ export default function SonbolaEduPage() {
             <motion.div
               style={{ x, willChange: 'transform', transform: 'translateZ(0)' }}
               ref={stackRef}
-              className="flex w-auto min-w-max gap-4 overflow-hidden pr-[0.63rem]"
+              className="flex w-auto min-w-max gap-6 overflow-hidden pr-[0.63rem]"
             >
-              {images.map((img, i) => (
-                <CardWrapper key={i}>
-                  <div className="rounded-xl overflow-hidden border border-hero-dark/10 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <PreviewImageBox
-                      src={img}
-                      alt={`Preview ${i + 1}`}
-                      sizes="(min-width:800px) 384px, (min-width:520px) 352px, 288px"
-                      containerClassName="relative w-[18rem] h-[12rem] md:w-[22rem] md:h-[14rem] lg:w-[24rem] lg:h-[15rem]"
-                    />
+              {images.map((img, i) => {
+                const labels = ['Dashboard', 'Student View', 'Lesson Builder', 'Admin Panel'];
+                return (
+                  <div key={i} className="flex-shrink-0 flex-grow-0">
+                    <div className="group rounded-xl overflow-hidden border border-white/[0.08] bg-hero-dark shadow-xl hover:shadow-2xl hover:border-white/[0.15] transition-all duration-500">
+                      {/* Browser mockup header */}
+                      <div className="flex items-center gap-3 px-4 py-2.5 border-b border-white/[0.08] bg-white/[0.02]">
+                        <div className="flex items-center gap-1.5">
+                          <div className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
+                          <div className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
+                          <div className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
+                        </div>
+                        <div className="flex-1 flex justify-center">
+                          <div className="rounded-md bg-white/[0.05] border border-white/[0.06] px-3 py-0.5 font-jetbrains-mono text-[9px] text-white/25 tracking-wider">
+                            sonbola-edu.com/{labels[i]?.toLowerCase().replace(/\s+/g, '-')}
+                          </div>
+                        </div>
+                      </div>
+                      {/* Image content */}
+                      <PreviewImageBox
+                        src={img}
+                        alt={labels[i] || `Preview ${i + 1}`}
+                        sizes="(min-width:800px) 480px, (min-width:520px) 400px, 320px"
+                        containerClassName="relative w-[20rem] h-[13rem] md:w-[26rem] md:h-[16rem] lg:w-[30rem] lg:h-[18.5rem]"
+                      />
+                    </div>
                   </div>
-                </CardWrapper>
-              ))}
+                );
+              })}
             </motion.div>
           </div>
           <motion.button

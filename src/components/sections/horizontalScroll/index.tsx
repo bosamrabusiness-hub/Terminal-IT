@@ -21,11 +21,12 @@ const HorizontalSection = () => {
     target: container,
     offset: ['start', 'end'],
   });
-  const x = useTransform(
+  const xRaw = useTransform(
     scrollYProgress,
     [0, 1],
     [0, width.windowWidth - width.width - 40]
   );
+  const x = useSpring(xRaw, { stiffness: 100, damping: 30, mass: 0.5 });
 
   // Scroll indicator opacity (fades as user scrolls)
   const indicatorOpacity = useTransform(scrollYProgress, [0, 0.15], [0.6, 0]);

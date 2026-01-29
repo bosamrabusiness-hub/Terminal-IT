@@ -2,6 +2,7 @@
 
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
+import { twMerge } from 'tailwind-merge';
 import { useMagnetic } from '../hooks/useMagnetic';
 
 type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -39,7 +40,7 @@ export default function MagneticButton({
   return (
     <MotionButton
       ref={elementRef}
-      className={`rounded-full border border-white/30 bg-transparent text-details-white ${sizeClass} ${className}`}
+      className={twMerge(`rounded-full border border-white/30 bg-transparent text-details-white ${sizeClass}`, className)}
       animate={enableMagnet ? { x, y } : undefined}
       transition={{ type: 'spring', damping: 15, stiffness: 150, mass: 0.1 }}
       onPointerMove={enableMagnet ? handleMagneticMove : undefined}
