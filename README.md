@@ -1,94 +1,175 @@
-# Portfolio — Next.js 16, TypeScript & GSAP
+# Terminal IT
 
-A modern portfolio focused on UI/UX design and web development. Built with Next.js 16 (App Router), React 19, TypeScript, and Tailwind CSS. Animations and transitions are powered by GSAP and Framer Motion, with smooth scrolling via Lenis.
+A high-performance digital agency portfolio built with Next.js 16, featuring cinematic scroll animations, interactive project showcases, and a terminal-inspired design system.
+
+**Live Site** &mdash; [terminal-it.vercel.app](https://terminal-it.vercel.app)
+
+---
+
+## Overview
+
+Terminal IT is a full-service digital agency site designed to showcase projects through immersive, scroll-driven experiences. The interface draws from terminal and developer aesthetics &mdash; dark palettes, monospace typography, and code-style annotations &mdash; while maintaining a polished, modern feel.
+
+### Key Sections
+
+| Section | Description |
+|---------|-------------|
+| **Hero** | Sticky landing with scrambling text animation and floating particle effects |
+| **About** | Value proposition cards: Lightning Fast, Enterprise Security, Cloud Native |
+| **Explorer** | Desktop-only Windows Explorer-style interactive UI |
+| **Showcase** | Horizontal scroll gallery with browser mockup frames and spring physics |
+| **Specialization** | 4-step process: Discovery, Design, Development, Deployment |
+| **Projects** | Interactive project list with cursor-following preview modal |
+| **Contact** | Contact form with service/timeline selectors and social links |
 
 ---
 
 ## Tech Stack
-- Next.js 16 (App Router)
-- React 19 with TypeScript
-- Tailwind CSS and SCSS Modules
-- GSAP and Framer Motion
-- next-transition-router for route transitions
-- Lenis for smooth scrolling
-- ESLint Flat config and Prettier
 
----
+### Core
 
-## Key Features
-- Smooth route transitions and preloader flow
-- Responsive UI with Tailwind and modern typography
-- Interactive project previews and horizontal scroll sections
-- Optimized image handling using Next/Image with remote patterns
+- **Next.js 16.1.1** &mdash; App Router, static generation, image optimization
+- **React 19** &mdash; Server and client components
+- **TypeScript 5** &mdash; Full type safety across the codebase
+
+### Styling
+
+- **Tailwind CSS 3.4** &mdash; Utility-first with custom design tokens
+- **SCSS Modules** &mdash; Scoped styles for complex components
+- **tailwind-merge** &mdash; Conflict-free class composition
+
+### Animation
+
+- **GSAP 3.12** &mdash; ScrollTrigger, quickTo for cursor tracking, timeline transitions
+- **Framer Motion 12** &mdash; Scroll progress, spring physics, viewport-triggered animations
+- **Lenis** &mdash; Butter-smooth native scroll
+- **use-scramble** &mdash; Typewriter/scramble text effects
 
 ---
 
 ## Getting Started
-### Install
+
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn
+
+### Installation
+
 ```bash
+git clone https://github.com/bosamrabusiness-hub/Terminal-IT.git
+cd Terminal-IT
 npm install
 ```
 
 ### Development
+
 ```bash
 npm run dev
 ```
-Open http://localhost:3000
 
-### Production
+Open [http://localhost:3000](http://localhost:3000).
+
+### Production Build
+
 ```bash
 npm run build
 npm start
 ```
 
-### Lint
-```bash
-npm run lint
-```
-
-Scripts are defined in [package.json](file:///c:/Ahmed/Terminal-portofolio1/package.json) and use the flat ESLint config [eslint.config.mjs](file:///c:/Ahmed/Terminal-portofolio1/eslint.config.mjs).
-
 ---
 
 ## Project Structure
-- App Router
-  - Global CSS: [globals.css](file:///c:/Ahmed/Terminal-portofolio1/src/app/globals.css)
-  - Root layout: [layout.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/app/layout.tsx)
-  - Providers: [provider.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/app/provider.tsx)
-  - Lenis smoothing: [template.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/app/template.tsx)
-  - Home page: [page.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/app/page.tsx)
-  - Projects: [ProjectLayout.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/app/projects/ProjectLayout.tsx), [RelatedProjectsSection.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/app/projects/RelatedProjectsSection.tsx), [elysium/page.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/app/projects/elysium/page.tsx), [kurskonfigurator/page.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/app/projects/kurskonfigurator/page.tsx), [sonbola-edu/page.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/app/projects/sonbola-edu/page.tsx)
-- Components
-  - Navbar: [Navbar.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/components/Navbar/Navbar.tsx), [DesktopNav.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/components/Navbar/DesktopNav.tsx), [MobileNav.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/components/Navbar/MobileNav.tsx), [NavItemLink.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/components/Navbar/NavItemLink.tsx), [TextHover.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/components/Navbar/TextHover.tsx)
-  - Offcanvas: [Offcanvas](file:///c:/Ahmed/Terminal-portofolio1/src/components/Offcanvas/Offcanvas.tsx), [Backdrop](file:///c:/Ahmed/Terminal-portofolio1/src/components/Offcanvas/Backdrop.tsx), [OffcanvasBody](file:///c:/Ahmed/Terminal-portofolio1/src/components/Offcanvas/OffcanvasBody.tsx), [OffcanvasToggle](file:///c:/Ahmed/Terminal-portofolio1/src/components/Offcanvas/OffcanvasToggle.tsx), [Links](file:///c:/Ahmed/Terminal-portofolio1/src/components/Offcanvas/Links.tsx)
-  - Preloader: [index.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/components/Preloader/index.tsx), [PreLoaderText.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/components/Preloader/PreLoaderText.tsx), [IntroOverlay.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/components/Preloader/IntroOverlay.tsx)
-  - Sections: [Hero](file:///c:/Ahmed/Terminal-portofolio1/src/components/sections/Hero/index.tsx), [about](file:///c:/Ahmed/Terminal-portofolio1/src/components/sections/about/index.tsx), [horizontalScroll](file:///c:/Ahmed/Terminal-portofolio1/src/components/sections/horizontalScroll/index.tsx), [works](file:///c:/Ahmed/Terminal-portofolio1/src/components/sections/works/index.tsx), [process](file:///c:/Ahmed/Terminal-portofolio1/src/components/sections/process/index.tsx), [purpose](file:///c:/Ahmed/Terminal-portofolio1/src/components/sections/purpose/index.tsx), [specialization](file:///c:/Ahmed/Terminal-portofolio1/src/components/sections/specialization/index.tsx), [stitch](file:///c:/Ahmed/Terminal-portofolio1/src/components/sections/stitch/index.tsx)
-  - Common UI: [AnimatedButton.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/components/common/AnimatedButton.tsx), [FaviconSwitcher.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/components/common/FaviconSwitcher.tsx), [MagneticButton.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/components/common/MagneticButton.tsx), [PreviewImageBox.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/components/common/PreviewImageBox.tsx), [TerminalIcon.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/components/common/TerminalIcon.tsx), [toggle.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/components/common/toggle.tsx)
-  - Hooks: [useMedia.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/components/hooks/useMedia.tsx), [useMagnetic.ts](file:///c:/Ahmed/Terminal-portofolio1/src/components/hooks/useMagnetic.ts)
-  - Config: [navItems.ts](file:///c:/Ahmed/Terminal-portofolio1/src/config/navItems.ts)
+
+```
+src/
+├── app/
+│   ├── page.tsx                  # Homepage (assembles all sections)
+│   ├── layout.tsx                # Root layout, fonts, metadata
+│   ├── template.tsx              # Lenis smooth scroll wrapper
+│   ├── explorer/                 # Explorer page route
+│   └── projects/
+│       ├── ProjectLayout.tsx     # Shared project page layout
+│       ├── RelatedProjectsSection.tsx
+│       └── sonbola-edu/          # Individual project page
+├── components/
+│   ├── common/                   # Reusable: MagneticButton, AnimatedButton, PreviewImageBox, Toggle
+│   ├── footer/                   # Contact section with form
+│   ├── Navbar/                   # Navigation bar + mobile nav
+│   ├── Offcanvas/                # Full-screen menu overlay
+│   ├── Preloader/                # Multilingual loading screen
+│   └── sections/
+│       ├── Hero/                 # Landing section (desktop + mobile)
+│       ├── about/                # Value propositions
+│       ├── horizontalScroll/     # Showcase carousel with browser mockup cards
+│       ├── works/                # Interactive project modal grid
+│       ├── specialization/       # Process steps
+│       ├── process/              # Company story
+│       ├── purpose/              # Mission statement
+│       └── stitch/               # Explorer-style UI section
+└── context/                      # AppContext for preloader state & scroll management
+```
 
 ---
 
-## Animations & Transitions
-- Route transitions: GSAP timelines with [provider.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/app/provider.tsx) using next-transition-router
-- Preloader and intro overlay orchestrated through [AppContext.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/components/context/AppContext.tsx) and Preloader components
-- Smooth scrolling: Lenis root in [template.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/app/template.tsx)
-- Component animations: Framer Motion variants in sections like [works](file:///c:/Ahmed/Terminal-portofolio1/src/components/sections/works/index.tsx)
+## Design System
+
+### Colors
+
+| Token | Hex | Usage |
+|-------|-----|-------|
+| `hero-dark` | `#0C0C0C` | Dark backgrounds, cards |
+| `mainbody-weg` | `#F8F7F3` | Light body background |
+| `details-red` | `#E44021` | Accent, CTAs, highlights |
+| `details-white` | `#FFFFFF` | Text on dark surfaces |
+
+### Typography
+
+- **Inter** &mdash; Body text (300&ndash;700)
+- **JetBrains Mono** &mdash; Code annotations, labels, UI accents
+- **Geist Sans / Mono** &mdash; Headings and system font
+
+### Custom Animations
+
+| Animation | Duration | Description |
+|-----------|----------|-------------|
+| `float` | 6s | Ambient floating particles |
+| `pulse-slow` | 3s | Status indicator pulse |
+| `shimmer` | 3s | Loading shimmer effect |
+| `fade-in-up` | 0.6s | Scroll-triggered entrance |
 
 ---
 
-## Navigation Model
-- Links are defined in [navItems.ts](file:///c:/Ahmed/Terminal-portofolio1/src/config/navItems.ts) with per-target offsets
-- On the homepage, anchors scroll smoothly via GSAP in [NavItemLink.tsx](file:///c:/Ahmed/Terminal-portofolio1/src/components/Navbar/NavItemLink.tsx)
+## Features
 
----
-
-## Image Handling
-- Configured remote patterns in [next.config.js](file:///c:/Ahmed/Terminal-portofolio1/next.config.js) for external images
-- All images use Next/Image with correct parent positioning and sizing
+- **Multilingual Preloader** &mdash; Cycles through 9 languages with progress bar and curved SVG exit animation
+- **Magnetic Buttons** &mdash; Pointer-following spring physics on interactive elements
+- **Cursor-Following Modal** &mdash; GSAP-powered preview that tracks mouse over project rows
+- **Horizontal Scroll** &mdash; Spring-smoothed (`useSpring`) scroll-driven carousel with browser mockup frames
+- **Text Scramble** &mdash; Rotating tech keywords with character-level scramble animation
+- **Responsive Architecture** &mdash; `ShowOnDesktop` / `ShowOnMobile` component gates for optimized rendering
+- **Noise Overlay** &mdash; Subtle grain texture on dark surfaces for depth
 
 ---
 
 ## Deployment
-Deploy easily with Vercel by connecting your repository. See the official Next.js docs for details.
 
+Deployed on **Vercel** with default Next.js configuration. Push to `master` triggers automatic deployment.
+
+```bash
+git push origin master
+```
+
+---
+
+## Contact
+
+- **Email** &mdash; hello@terminal.dev
+- **Phone** &mdash; +201551891422
+- **Location** &mdash; Cairo, Egypt
+
+---
+
+## License
+
+This project is proprietary. All rights reserved.
