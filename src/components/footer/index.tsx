@@ -177,6 +177,13 @@ const Footer: React.FC<FooterProps> = ({ id }) => {
                       {info.subtitle}
                     </p>
                   </div>
+                  {info.href && (
+                    <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-0 -translate-x-1">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="size-4 text-details-red">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                      </svg>
+                    </div>
+                  )}
                 </motion.div>
               ))}
             </motion.div>
@@ -311,11 +318,17 @@ const Footer: React.FC<FooterProps> = ({ id }) => {
                 </div>
 
                 <div className="md:col-span-2 mt-3">
-                  <AnimatedButton
-                    text="Send Message"
-                    className="bg-transparent text-mainbody-weg"
-                    onClick={() => {}}
-                  />
+                  <button
+                    type="submit"
+                    className="group relative w-full md:w-auto rounded-full border-2 border-details-red bg-details-red/10 px-8 py-3 font-jetbrains-mono text-sm text-details-red tracking-wider transition-all duration-300 hover:bg-details-red hover:text-white hover:shadow-[0_0_30px_rgba(228,64,33,0.3)] cursor-pointer"
+                  >
+                    <span className="relative z-10 flex items-center justify-center gap-2">
+                      Send Message
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="size-4 transition-transform duration-300 group-hover:translate-x-1">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                      </svg>
+                    </span>
+                  </button>
                 </div>
               </form>
             </motion.div>

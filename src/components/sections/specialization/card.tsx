@@ -25,7 +25,7 @@ export const Card = ({ heading, paragraph, number, icon }: CardInterface) => {
   return (
     <motion.div
       variants={itemVariants}
-      className="group relative flex gap-5 md:gap-6 max-w-full rounded-xl glass-card-light p-5 md:p-6 transition-all duration-500 hover:shadow-card-hover hover:bg-white/80 overflow-hidden"
+      className="group relative flex gap-5 md:gap-6 max-w-full rounded-xl glass-card-light p-5 md:p-6 transition-all duration-500 hover:shadow-card-hover hover:bg-white/80 overflow-hidden border-l-2 border-l-transparent hover:border-l-details-red"
     >
       {/* Gradient overlay on hover */}
       <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"

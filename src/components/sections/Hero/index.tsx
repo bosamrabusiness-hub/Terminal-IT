@@ -127,10 +127,13 @@ const Hero: React.FC<HeroProps> = ({ id }) => {
                 <div className="w-2 h-2 rounded-full bg-details-red status-dot" />
                 <span className="font-jetbrains-mono text-[10px] uppercase tracking-[0.2em] text-details-red/60">Currently Specializing In</span>
               </div>
-              <span
-                ref={ref}
-                className="text-large font-jetbrains-mono opacity-85"
-              />
+              <span className="inline-flex items-baseline gap-0.5">
+                <span
+                  ref={ref}
+                  className="text-large font-jetbrains-mono opacity-85"
+                />
+                <span className="inline-block w-[2px] h-[1.1em] bg-details-red animate-pulse" />
+              </span>
             </motion.div>
           </div>
         </div>
